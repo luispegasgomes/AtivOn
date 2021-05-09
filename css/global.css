@@ -1,0 +1,24 @@
+/* Chewy (Regular 400) */
+@import url("https://fonts.googleapis.com/css2?family=Chewy");
+/* Ubuntu (Light 300 / Regular 400 / Medium 500 / Bold 700)*/
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700");
+
+:root {
+  --azul-claro: #8ecae6;
+  --azul: #219ebc;
+  --azul-escuro: #023047;
+  --amarelo: #ffb703;
+  --laranja: #fb8500;
+  --Chewy: "Chewy", cursive;
+  --Ubuntu: "Ubuntu", sans-serif;
+}
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 22px;
+  background: var(--azul-escuro);
+  color: var(--amarelo);
+  font-family: var(--Ubuntu);
+  font-size: 22px;
+}
