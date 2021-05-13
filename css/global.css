@@ -13,6 +13,71 @@
   --Ubuntu: "Ubuntu", sans-serif;
 }
 
+.fundoBranco {
+  background: white;
+}
+
+.fundoAzulClaro {
+  background: var(--azul-claro);
+}
+
+.fundoAzul {
+  background: var(--azul);
+}
+
+.fundoAzulEscuro {
+  background: var(--azul-escuro);
+}
+
+.fundoAmarelo {
+  background: var(--amarelo);
+}
+
+.fundoLaranja {
+  background: var(--laranja);
+}
+
+.corAzulClaro {
+  color: var(--azul-claro);
+}
+
+.corAzul {
+  color: var(--azul);
+}
+
+.corAzulEscuro {
+  color: var(--azul-escuro);
+}
+
+.corAmarelo {
+  color: var(--amarelo);
+}
+
+.corLaranja {
+  color: var(--laranja);
+}
+
+.fonteChewy {
+  font-family: var(--Chewy);
+}
+
+.fonteUbuntu {
+  font-family: var(--Ubuntu);
+}
+
+.section {
+  border-radius: 0 0 45px 45px;
+  padding-bottom: 2rem;
+}
+
+main {
+  min-height: 100vh;
+}
+
+img {
+  padding-top: 0.5rem;
+}
+
 button {
   outline: none;
   border: none;
@@ -21,4 +86,43 @@ button {
   color: var(--amarelo);
   font-family: var(--Ubuntu);
   font-size: 22px;
+  width: 188px;
+  height: 56px;
+  margin: 1.2rem 0;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+hr {
+  width: 100%;
+  color: #707070;
+  margin: 0;
+}
+
+form fieldset {
+  width: 100%;
+}
+
+form .form-control {
+  background: var(--amarelo);
+  font-family: var(--Ubuntu);
+  font-size: 18px;
+  border: none;
+}
+
+form .form-control::placeholder {
+  color: var(--azul-escuro);
+}
+
+form .form-control:focus {
+  filter: drop-shadow(0 0 0.75rem var(--amarelo));
+}
+
+form input[type="radio"]:nth-of-type(n) {
+  margin-left: 20px;
 }
