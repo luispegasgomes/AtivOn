@@ -52,29 +52,15 @@ export default class UserController {
     const file = path.substr(path.lastIndexOf("/") + 1);
     const route = file.split(".")[0];
 
-    console.log(sessionStorage.getItem("active"));
-    console.log(route);
-
     if (
-      sessionStorage.getItem("active") &&
+      sessionStorage.getItem("active") != "undefined" &&
       publicRoutes.some((publicRoute) => publicRoute === route)
     ) {
       if (sessionStorage.getItem("active") === "admin") {
         location.href = "http://127.0.0.1:5500/html/landing_admin.html";
-      } else {
+      } else if (sessionStorage.getItem("active") != undefined) {
         location.href = "http://127.0.0.1:5500/html/landing.html";
       }
     }
   }
-
-  /* if (sessionStorage.getItem("active") && route in publicRoutes) {
-      if (sessionStorage.getItem("active") === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
-      } else {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
-      }
-    } else if (!sessionStorage.getItem("active") && !(route in publicRoutes)) {
-      location.href = "http://127.0.0.1:5500/index.html";
-    }
-  } */
 }
