@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,64 +12,68 @@
     <title>AtivOn</title>
     <link rel="shortcut icon" href="../img/icon.png" />
     <link rel="stylesheet" href="../css/global.css" />
-  </head>
-  <body>
-        <!--NAVBAR-->
-        <nav class="navbar" style="background-color: #FFB703;">
-          <div class=" container-fluid">
-  
-              <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <img src="../img/menu.png" width="35">
-              </button>
-              <a class="navbar-brand mx-auto" href="games.html">
-                  <img src="../img/logo-removebg-preview.png" width="210" height="70">
-              </a>
-  
-          </div>
-      </nav>
-  
-  
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-fullscreen">
-              <div class="modal-content" style="background-color: #FFB703;">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel" style="font-family: cursive;">Olá!</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body row">
-                      <!--MENU SECTION-->
-                      <div>
-                          <ul class="list-group list-group-flush">
-  
-                              <li class="list-group-item" style="background-color: #FFB703;"><img
-                                      src="../img/conquistas_ico.png" width="40"> Início</li>
-                              <li class="list-group-item" style="background-color: #FFB703;"><img
-                                      src="../img/Comando_Ico.png" width="40"> Jogos</li>
-                              <li class="list-group-item" style="background-color: #FFB703;"><img
-                                      src="../img/estatisticas_ico.png" width="40"> Estatísticas</li>
-                              <li class="list-group-item" style="background-color: #FFB703;"><img
-                                      src="../img/conquistas_ico.png" width="40"> Troféus</li>
-                          </ul>
-                      </div>
-                      <!--PROFILE SECTION-->
-                      <div class="row align-items-center justify-content-center">
-                          <div class="profile">
-                              <img src="../img/cuidadoso.png" width="80">
-                              <p style="color: #FB8500; font-family: cursive; font-size: large;">user</p>
-                              <p style="color: #8ECAE6; font-family: cursive; font-size: small;">Nível 1 - 10 XP</p>
-                          </div>
-  
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn" data-bs-dismiss="modal"><img src="../img/Logout_Ico.png"
-                              width="30"></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <main class="corAzulEscuro">
-          <section class="
+</head>
+
+<body>
+
+    <!--NAVBAR-->
+    <nav class="navbar" style="background-color: #FFB703;">
+        <div class=" container-fluid">
+
+            <button class="d-flex flex-column navbar-toggler" type="button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <img src="../img/menu.png" width="35">
+            </button>
+            <a class="d-flex flex-column navbar-brand mx-auto" href="games.html">
+                <img src="../img/logo-removebg-preview.png" width="230" height="80">
+            </a>
+
+        </div>
+    </nav>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background-color: #FFB703;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-family: cursive;">Olá!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body row">
+                    <!--MENU SECTION-->
+                    <div>
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item" style="background-color: #FFB703;"><img
+                                    src="../img/conquistas_ico.png" width="40"> Início</li>
+                            <li class="list-group-item" style="background-color: #FFB703;"><img
+                                    src="../img/Comando_Ico.png" width="40"> Jogos</li>
+                            <li class="list-group-item" style="background-color: #FFB703;"><img
+                                    src="../img/estatisticas_ico.png" width="40"> Estatísticas</li>
+                            <li class="list-group-item" style="background-color: #FFB703;"><img
+                                    src="../img/conquistas_ico.png" width="40"> Troféus</li>
+                        </ul>
+                    </div>
+                    <!--PROFILE SECTION-->
+                    <div class="row align-items-center justify-content-center">
+                        <div class="profile">
+                            <img src="../img/cuidadoso.png" width="80">
+                            <p style="color: #FB8500; font-family: cursive; font-size: large;">user</p>
+                            <p style="color: #8ECAE6; font-family: cursive; font-size: small;">Nível 1 - 10 XP</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal"><img src="../img/Logout_Ico.png"
+                            width="30"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="corAzulEscuro">
+        <section class="
             d-flex
             flex-column
             align-items-center
@@ -77,29 +82,34 @@
             section
             fundoAzulClaro
           ">
-              <h1 class="display-6 text-sm-center fonteChewy">
-                  <p style="text-align: center;">Atividades mais recentes</p>
-              </h1>
-              <h2 class="display-6 text-sm-center fonteUbuntu">
-                <p style="text-align: center;">Último jogo <a href="../html/landing.html"><button>Jogar</button></a></p>
-                <p style="text-align: center;">Último troféu recebido <a href="../html/landing.html"><button>Ver Troféus</button></a></p>
-              </h2>
-  
-          </section>
-          <section class="d-flex flex-column align-items-center">
-              <p class="text-center col-8 mt-2 h1 font-weight-normal fonteChewy corAzul">
-                  Ranking
-              </p>
-              <p class="text-center col-8 mt-2 h4 font-weight-normal fonteUbuntu corAzulEscuro">
+            <br>
+            <h1 class="display-6 text-sm-center fonteChewy">
+                <p style="text-align: center;">Atividades mais recentes</p>
+            </h1>
+            <h2 class="display-6 text-sm-center fonteUbuntu">
+                <p style="text-align: center;">Último jogo <a href="../html/landing.html"><button>Jogar</button></a>
+                </p>
+                <p style="text-align: center;">Último troféu recebido <a href="../html/landing.html"><button>Ver
+                            Troféus</button></a></p>
+            </h2>
+
+        </section>
+        <section class="d-flex flex-column align-items-center">
+            <p class="text-center col-8 mt-2 h1 font-weight-normal fonteChewy corAzul">
+                Ranking
+            </p>
+            <p class="text-center col-8 mt-2 h4 font-weight-normal fonteUbuntu corAzulEscuro">
                 user, a tua posição no ranking é:
-              </p>
-              <p class="text-center col-8 mt-2 h3 font-weight-bold fonteUbuntu corAzulEscuro">
+            </p>
+            <p class="text-center col-8 mt-2 h3 font-weight-bold fonteUbuntu corAzulEscuro">
                 2º Lugar
-              </p>
-              <a href="../html/landing.html"><button>Bora Jogar!</button></a>
-              <a href="../html/landing.html"><button class="fundoAmarelo corAzulEscuro col-md-14">Covid-19 - A pandemia</button></a>
-  
-          </section>
-      </main>
-  </body>
+            </p>
+            <a href="../html/landing.html"><button>Bora Jogar!</button></a>
+            <a href="../html/landing.html"><button class="fundoAmarelo corAzulEscuro col-md-14">Covid-19 - A
+                    pandemia</button></a>
+
+        </section>
+    </main>
+</body>
+
 </html>
