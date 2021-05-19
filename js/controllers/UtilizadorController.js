@@ -28,9 +28,9 @@ export default class UtilizadorController {
       localStorage.setItem("users", JSON.stringify(this.users));
       sessionStorage.setItem("active", username);
       if (username === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
+        location.href = "./landing_admin.html";
       } else {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
+        location.href = "./landing_user.html";
       }
     }
   }
@@ -44,9 +44,9 @@ export default class UtilizadorController {
     if (utilizador) {
       sessionStorage.setItem("active", utilizador.username);
       if (utilizador.username === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
+        location.href = "./landing_admin.html";
       } else {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
+        location.href = "./landing_user.html";
       }
     } else {
       alert("Erro!");
@@ -64,9 +64,9 @@ export default class UtilizadorController {
       publicRoutes.some((publicRoute) => publicRoute === route)
     ) {
       if (sessionStorage.getItem("active") === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
+        location.href = "./html/landing_admin.html";
       } else if (sessionStorage.getItem("active") != undefined) {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
+        location.href = "./html/landing_user.html";
       }
     }
   }
