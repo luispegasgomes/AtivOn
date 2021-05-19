@@ -1,91 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pratica!</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
     <link rel="shortcut icon" href="../img/icon.png" />
-    <link rel="stylesheet" href="../css/global.css">
-</head>
+    <link rel="stylesheet" href="../css/global.css" />
+  </head>
 
-<body>
+  <body>
     <!--NAVBAR-->
-    <nav class="navbar" style="background-color: #FFB703;">
-        <div class=" container-fluid">
-
-            <button class="d-flex flex-column navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src="../img/menu.png" width="35">
-            </button>
-            <a class="d-flex flex-column navbar-brand mx-auto" href="games.html">
-                <img src="../img/logo-removebg-preview.png" width="230" height="80">
-            </a>
-
-        </div>
+    <nav class="navbar fundoAmarelo">
+      <div class="container-fluid">
+        <button
+          class="d-flex flex-column navbar-toggler btnMenu"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <img src="../img/menu.png" width="35" />
+        </button>
+        <a class="d-flex flex-column navbar-brand mx-auto" href="games.html">
+          <img src="../img/logo.png" width="230" height="80" />
+        </a>
+      </div>
     </nav>
 
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background-color: #FFB703;">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" style="font-family: cursive;">Olá!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body row">
-                    <!--MENU SECTION-->
-                    <div>
-                        <ul class="list-group list-group-flush">
-
-                            <li class="list-group-item" style="background-color: #FFB703;"><img
-                                    src="../img/conquistas_ico.png" width="40"> Início</li>
-                            <li class="list-group-item" style="background-color: #FFB703;"><img
-                                    src="../img/Comando_Ico.png" width="40"> Jogos</li>
-                            <li class="list-group-item" style="background-color: #FFB703;"><img
-                                    src="../img/estatisticas_ico.png" width="40"> Estatísticas</li>
-                            <li class="list-group-item" style="background-color: #FFB703;"><img
-                                    src="../img/conquistas_ico.png" width="40"> Troféus</li>
-                        </ul>
-                    </div>
-                    <!--PROFILE SECTION-->
-                    <div class="row align-items-center justify-content-center">
-                        <div class="profile">
-                            <img src="../img/cuidadoso.png" width="80">
-                            <p style="color: #FB8500; font-family: cursive; font-size: large;">user</p>
-                            <p style="color: #8ECAE6; font-family: cursive; font-size: small;">Nível 1 - 10 XP</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal"><img src="../img/Logout_Ico.png"
-                            width="30"></button>
-                </div>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content fundoAmarelo">
+          <div class="modal-header">
+            <h5 class="modal-title fonteChewy" id="exampleModalLabel">Olá!</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body row">
+            <!--MENU SECTION-->
+            <div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item fundoAmarelo">
+                  <img src="../img/conquistas_ico.png" width="40" /> Início
+                </li>
+                <li class="list-group-item fundoAmarelo">
+                  <img src="../img/Comando_Ico.png" width="40" /> Jogos
+                </li>
+                <li class="list-group-item fundoAmarelo">
+                  <img src="../img/estatisticas_ico.png" width="40" />
+                  Estatísticas
+                </li>
+                <li class="list-group-item fundoAmarelo">
+                  <img src="../img/conquistas_ico.png" width="40" /> Troféus
+                </li>
+              </ul>
             </div>
+            <!--PROFILE SECTION-->
+            <div class="d-flex align-items-center justify-content-center">
+              <div
+                class="
+                  profile
+                  d-flex
+                  flex-column
+                  align-items-center
+                  justify-content-center
+                "
+              >
+                <img src="../img/cuidadoso.png" width="80" />
+                <p class="h4 corLaranja fonteChewy">user</p>
+                <p class="small corAzulClaro fonteChewy">Nível 1 - 10 XP</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              <img src="../img/Logout_Ico.png" width="30" />
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-    <br>
+    <br />
     <!--PAGE-->
-    <section class="d-flex flex-column align-items-center justify-content-center">
-        <p style="font-family: var(--Chewy); color: #FFB703; font-size: 50px;">Atividades <img src="../img/activities_ico.png"></p>
+    <section
+      class="d-flex flex-column align-items-center justify-content-center"
+    >
+      <p class="corLaranja fonteChewy" style="font-size: 50px">
+        Atividades <img src="../img/activities_ico.png" />
+      </p>
     </section>
-    <br>
+    <br />
     <!--ACTIVITIES-->
 
-    <section class="d-flex flex-column align-items-center justify-content-center">
-        <p class="md-3 col-10 col-md-4" style="font-family: var(--Chewy); font-size: larger; color: #023047; border-radius: 7px; background-color: #8ECAE6;">&nbsp Prevenção do contágio <a class="d-flex flex-column align-items-end" href="#"><img src="../img/Atividades_Ico.png" width="80px"></a></p>
-        <p class="md-3 col-10 col-md-4" style="font-family: var(--Chewy); font-size: larger; color: #023047; border-radius: 7px; background-color: #8ECAE6; text-align: left;">&nbsp Como acontece o contágio? <a href="#"><img src="../img/Atividades_Ico.png" width="80px"></a></p>
-        <p class="md-3 col-10 col-md-4" style="font-family: var(--Chewy); font-size: larger; color: #023047; border-radius: 7px; background-color: #8ECAE6; text-align: left;">&nbsp Os vírus e as doenças infeciosas <a href="#"><img src="../img/Atividades_Ico.png" width="80px"></a></p>
-
+    <section
+      id="lista_atividades"
+      class="
+        d-flex
+        flex-column
+        align-items-center
+        justify-content-center
+        fonteChewy
+        corAzulEscuro
+      "
+    >
+      <p
+        class="
+          md-3
+          col-10 col-md-4
+          fonteChewy
+          corAzulEscuro
+          fundoAzulClaro
+          d-flex
+          align-items-center
+          justify-content-between
+        "
+      >
+        Prevenção do contágio
+        <a href="#"><img src="../img/Atividades_Ico.png" width="80px" /></a>
+      </p>
+      <p
+        class="
+          md-3
+          col-10 col-md-4
+          fonteChewy
+          corAzulEscuro
+          fundoAzulClaro
+          d-flex
+          align-items-center
+          justify-content-between
+        "
+      >
+        Como acontece o contágio?
+        <a href="#"><img src="../img/Atividades_Ico.png" width="80px" /></a>
+      </p>
+      <p
+        class="
+          md-3
+          col-10 col-md-4
+          fonteChewy
+          corAzulEscuro
+          fundoAzulClaro
+          d-flex
+          align-items-center
+          justify-content-between
+        "
+      >
+        Os vírus e as doenças infeciosas
+        <a href="#"><img src="../img/Atividades_Ico.png" width="80px" /></a>
+      </p>
     </section>
-
-
-
-</body>
-
+  </body>
 </html>

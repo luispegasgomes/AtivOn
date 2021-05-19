@@ -1,14 +1,14 @@
 import RegistoView from "./views/RegistoView.js";
 import LoginView from "./views/LoginView.js";
-import UserView from "./views/UserView.js";
+import UtilizadorView from "./views/UtilizadorView.js";
 
 class App {
   constructor() {
     this.routes = {
       "": [],
-      index: [UserView],
-      registo: [UserView, RegistoView],
-      login: [UserView, LoginView],
+      index: [UtilizadorView],
+      registo: [UtilizadorView, RegistoView],
+      login: [UtilizadorView, LoginView],
       landing_admin: [],
       landing: [],
     };

@@ -1,6 +1,6 @@
-import UserModel from "../models/UserModel.js";
+import UtilizadorModel from "../models/UtilizadorModel.js";
 
-export default class UserController {
+export default class UtilizadorController {
   constructor() {
     this.users = localStorage.users ? JSON.parse(localStorage.users) : [];
   }
@@ -16,7 +16,14 @@ export default class UserController {
       );
     } else {
       this.users.push(
-        new UserModel(nome, username, email, password, dataNascimento, genero)
+        new UtilizadorModel(
+          nome,
+          username,
+          email,
+          password,
+          dataNascimento,
+          genero
+        )
       );
       localStorage.setItem("users", JSON.stringify(this.users));
       sessionStorage.setItem("active", username);

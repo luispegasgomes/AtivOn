@@ -1,8 +1,8 @@
-import UserController from "../controllers/UserController.js";
+import UtilizadorController from "../controllers/UtilizadorController.js";
 
 export default class LoginView {
   constructor() {
-    this.userController = new UserController();
+    this.utilizadorController = new UtilizadorController();
     this.txtUtilizador = document.getElementById("txtUtilizador");
     this.txtPassword = document.getElementById("txtPassword");
     this.loginBtn = document.getElementById("loginBtn");
@@ -13,7 +13,7 @@ export default class LoginView {
   bindLoginForm() {
     this.loginBtn.addEventListener("click", () => {
       try {
-        this.userController.login(
+        this.utilizadorController.login(
           this.txtUtilizador.value,
           this.txtPassword.value
         );
