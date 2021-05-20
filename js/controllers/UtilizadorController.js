@@ -28,9 +28,9 @@ export default class UtilizadorController {
       localStorage.setItem("users", JSON.stringify(this.users));
       sessionStorage.setItem("active", username);
       if (username === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
+        location.href = "./landing_admin.html";
       } else {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
+        location.href = "./landing_user.html";
       }
     }
   }
@@ -44,9 +44,9 @@ export default class UtilizadorController {
     if (utilizador) {
       sessionStorage.setItem("active", utilizador.username);
       if (utilizador.username === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
+        location.href = "./landing_admin.html";
       } else {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
+        location.href = "./landing_user.html";
       }
     } else {
       alert("Erro!");
@@ -55,19 +55,57 @@ export default class UtilizadorController {
 
   checkRoute() {
     const publicRoutes = ["index", "login", "registo"];
+    const adminRoutes = [
+      "landing_admin",
+      "ver_utilizadores",
+      "gerir_atividades",
+      "gerir_medalhas",
+    ];
+    const userRoutes = [
+      "landing_user",
+      "perfil",
+      "jogos",
+      "jogo",
+      "estatisticas",
+      "trofeus",
+      "info",
+    ];
     const path = window.location.pathname;
     const file = path.substr(path.lastIndexOf("/") + 1);
     const route = file.split(".")[0];
+
+    if (
+      sessionStorage.getItem("active") == "undefined" &&
+      (adminRoutes.some((adminRoute) => adminRoute === route) ||
+        userRoutes.some((userRoute) => userRoute === route))
+    ) {
+      location.href = "../index.html";
+    }
 
     if (
       sessionStorage.getItem("active") != "undefined" &&
       publicRoutes.some((publicRoute) => publicRoute === route)
     ) {
       if (sessionStorage.getItem("active") === "admin") {
-        location.href = "http://127.0.0.1:5500/html/landing_admin.html";
+        location.href = "./html/landing_admin.html";
       } else if (sessionStorage.getItem("active") != undefined) {
-        location.href = "http://127.0.0.1:5500/html/landing.html";
+        location.href = "./html/landing_user.html";
       }
+    }
+
+    if (
+      sessionStorage.getItem("active") == "admin" &&
+      userRoutes.some((userRoute) => userRoute === route)
+    ) {
+      location.href = "./landing_admin.html";
+    }
+
+    if (
+      sessionStorage.getItem("active") != "undefined" &&
+      sessionStorage.getItem("active") != "admin" &&
+      adminRoutes.some((adminRoute) => adminRoute === route)
+    ) {
+      location.href = "./landing_user.html";
     }
   }
 }

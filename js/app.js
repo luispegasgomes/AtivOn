@@ -9,8 +9,17 @@ class App {
       index: [UtilizadorView],
       registo: [UtilizadorView, RegistoView],
       login: [UtilizadorView, LoginView],
-      landing_admin: [],
-      landing: [],
+      landing_admin: [UtilizadorView],
+      ver_utilizadores: [UtilizadorView],
+      gerir_atividades: [UtilizadorView],
+      gerir_medalhas: [UtilizadorView],
+      landing_user: [UtilizadorView],
+      perfil: [UtilizadorView],
+      jogos: [UtilizadorView],
+      jogo: [UtilizadorView],
+      estatisticas: [UtilizadorView],
+      trofeus: [UtilizadorView],
+      info: [UtilizadorView],
     };
 
     // import dummy data for testing purposes
