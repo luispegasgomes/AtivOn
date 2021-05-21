@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
+  <link rel="shortcut icon" href="../img/icon.png" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <title>Bora Jogar!</title>
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav class="navbar fundoAmarelo">
+    <div class="container-fluid">
+      <button class="d-flex flex-column navbar-toggler btnMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="../img/menu.png" width="35" />
+      </button>
+      <a class="d-flex flex-column navbar-brand mx-auto" href="landing.html">
+        <img src="../img/logo.png" width="230" height="80" />
+      </a>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content fundoAmarelo">
+        <div class="modal-header">
+          <h5 class="modal-title fonteChewy" id="exampleModalLabel">Olá!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body row">
+          <!--MENU SECTION-->
+          <div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/conquistas_ico.png" width="40" /> Início
+              </li>
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/Comando_Ico.png" width="40" /> Jogos
+              </li>
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/estatisticas_ico.png" width="40" />
+                Estatísticas
+              </li>
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/conquistas_ico.png" width="40" /> Troféus
+              </li>
+            </ul>
+          </div>
+          <!--PROFILE SECTION-->
+          <div class="d-flex align-items-center justify-content-center">
+            <div class="
+                  profile
+                  d-flex
+                  flex-column
+                  align-items-center
+                  justify-content-center
+                ">
+              <img src="../img/cuidadoso.png" width="80" />
+              <p class="h4 corLaranja fonteChewy">user</p>
+              <p class="small corAzulClaro fonteChewy">Nível 1 - 10 XP</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal">
+            <img src="../img/Logout_Ico.png" width="30" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="corAzulEscuro d-flex flex-column align-items-center section fundoAzulClaro">Diverte-te a jogar!</h1>
+
+  <!--QUIZON-->
+
+  <div class="d-flex justify-content-center">
+    <img src="../img/quizon_ico.png">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h2 class="corAzul fonteChewy">Quiz On</h2>
+      <p style="text-align: center;" class="fonteUbuntu corAzulEscuro">Bora lá testar o teu conhecimento sobre este novo
+        virús !</p>
+      <button>Jogar</button>
+    </div>
+  </div>
+  <hr>
+
+  <!--ATIVIDADES-->
+
+  <div class="d-flex justify-content-center">
+    <img src="../img/activities_ico_jogos.png">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h2 class="corLaranja fonteChewy">Atividades</h2>
+      <p style="text-align: center;" class="fonteUbuntu corAzulEscuro">Vamos lá fazer umas fichas sobre os vírus!</p>
+      <button>Jogar</button>
+    </div>
+  </div>
+  <hr>
+
+  <!--CURIOATIV-->
+
+  <div class="d-flex justify-content-center">
+    <img src="../img/curioativ_ico.png">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h2 class="corAzul fonteChewy">CurioAtiv</h2>
+      <p style="text-align: center;" class="fonteUbuntu corAzulEscuro">Toca a fazer umas perguntinhas de verdadeiro e falso!</p>
+      <button>Jogar</button>
+    </div>
+  </div>
+  <hr>
+
+  <!--COMPLETA!-->
+
+  <div class="d-flex justify-content-center">
+    <img src="../img/completa_ico.png">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h2 class="corAzul fonteChewy">Completa!</h2>
+      <p style="text-align: center;" class="fonteUbuntu corAzulEscuro">Acerta em cheio nas questões sobre COVID e enriquece o teu conhecimento!</p>
+      <button>Jogar</button>
+    </div>
+  </div>
+  <hr>
+
+</body>
+<script type="module" src="../js/app.js"></script>
+
+</html>
