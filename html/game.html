@@ -1,28 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-      crossorigin="anonymous"
-    ></script>
-    <title>AtivOn</title>
-    <link rel="shortcut icon" href="../img/icon.png" />
-    <link rel="stylesheet" href="../css/global.css" />
-  </head>
-  <body></body>
-  <script type="module" src="../js/app.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+  </script>
+  <title>AtivOn</title>
+  <link rel="shortcut icon" href="../img/icon.png" />
+  <link rel="stylesheet" href="../css/global.css" />
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav class="navbar fundoAmarelo">
+    <div class="container-fluid">
+      <button class="d-flex flex-column navbar-toggler btnMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="../img/menu.png" width="35" />
+      </button>
+      <a class="d-flex flex-column navbar-brand mx-auto" href="landing.html">
+        <img src="../img/logo.png" width="230" height="80" />
+      </a>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content fundoAmarelo">
+        <div class="modal-header">
+          <h5 class="modal-title fonteChewy" id="exampleModalLabel">Olá!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body row">
+          <!--MENU SECTION-->
+          <div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/conquistas_ico.png" width="40" /> Início
+              </li>
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/Comando_Ico.png" width="40" /> Jogos
+              </li>
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/estatisticas_ico.png" width="40" />
+                Estatísticas
+              </li>
+              <li class="list-group-item fundoAmarelo">
+                <img src="../img/conquistas_ico.png" width="40" /> Troféus
+              </li>
+            </ul>
+          </div>
+          <!--PROFILE SECTION-->
+          <div class="d-flex align-items-center justify-content-center">
+            <div class="
+                  profile
+                  d-flex
+                  flex-column
+                  align-items-center
+                  justify-content-center
+                ">
+              <img src="../img/cuidadoso.png" width="80" />
+              <p class="h4 corLaranja fonteChewy">user</p>
+              <p class="small corAzulClaro fonteChewy">Nível 1 - 10 XP</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal">
+            <img src="../img/Logout_Ico.png" width="30" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="corAzulEscuro fundoAmarelo">
+    <section class="d-flex flex-column align-items-center section fundoBranco">
+      <div class="d-flex align-items-center fonteChewy corLaranja">
+        <h1>Curio</h1><img src="../img/curioativ_ico.png" alt="AtivOn logo" width="120px" />
+        <h1>Ativ</h1>
+      </div>
+
+      <p class="d-flex align-items-center justify-content-center">
+        <span class="fonteChewy" style="text-align: center;">Uma pessoa pode transmitir o coronavírus mesmo sem
+          apresentar qualquer sintoma.</span>
+      </p>
+      <div class="d-flex flex-column align-items-center col-10 my-2">
+        <button class="mb-3 col-5" style="background-color: #79C368; color: white;">VERDADEIRO</button>
+        <button class="mb-3 col-5" style="background-color: RED; color: white;">FALSO</button>
+
+      </div>
+    </section>
+
+    <section class="d-flex align-items-center justify-content-center">
+      <div class="my-3 d-flex flex-column align-items-center justify-content-center" style="background-color: #8ECAE6; border-radius: 20px;">
+        <p class="fonteUbuntu corAzulEscuro">Pergunta 1/10</p>
+      <p class="fonteUbuntu corAzulEscuro">Respostas corretas: 0</p>
+      </div>
+      
+      <button class="col-2" style="background-color: #8ECAE6;">
+        <img src="../img/Atividades_Ico.png" width="80px">
+      </button>
+    </section>
+  </main>
+
+</body>
+<script type="module" src="../js/app.js"></script>
+
 </html>
