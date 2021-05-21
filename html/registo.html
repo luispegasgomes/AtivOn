@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <title>AtivOn - Registo</title>
+    <link rel="shortcut icon" href="../img/icon.png" />
+    <link rel="stylesheet" href="../css/global.css" />
+  </head>
+  <body>
+    <main class="corAzulEscuro fundoAmarelo">
+      <section
+        class="d-flex flex-column align-items-center section fundoBranco"
+      >
+        <img src="../img/logo.png" alt="AtivOn logo" />
+        <form class="d-flex flex-column align-items-center col-8">
+          <fieldset class="mb-3 row d-flex justify-content-center">
+            <div class="col" style="padding-left: 0">
+              <input
+                type="text"
+                class="form-control"
+                id="txtNome"
+                placeholder="Nome"
+                required
+              />
+            </div>
+            <div class="col" style="padding-right: 0">
+              <input
+                type="text"
+                class="form-control"
+                id="txtApelido"
+                placeholder="Apelido"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset class="mb-3 col">
+            <input
+              type="text"
+              class="form-control"
+              id="txtNomeUtilizador"
+              placeholder="Nome de Utilizador"
+              required
+            />
+          </fieldset>
+          <fieldset class="mb-3 col">
+            <input
+              type="email"
+              class="form-control"
+              id="txtEmail"
+              placeholder="Email"
+              required
+            />
+          </fieldset>
+          <fieldset class="mb-3 col">
+            <input
+              type="password"
+              class="form-control"
+              id="txtPassword"
+              placeholder="Password"
+              minlength="8"
+              maxlength="16"
+              required
+            />
+          </fieldset>
+          <fieldset class="mb-3 col">
+            <input
+              type="password"
+              class="form-control"
+              id="txtConfPassword"
+              placeholder="Confirmar Password"
+              minlength="8"
+              maxlength="16"
+              required
+            />
+          </fieldset>
+
+          <hr />
+          <fieldset class="mb-3 col">
+            <label
+              for="txtDataNascimento"
+              class="mt-3 mb-2 fonteUbuntu corAzulEscuro h6 font-weight-normal"
+              >Data de nascimento</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="txtDataNascimento"
+              placeholder="dd/mm/aaaa"
+              required
+            />
+          </fieldset>
+          <fieldset class="col">
+            <p class="fonteUbuntu corAzulEscuro h6 font-weight-normal">
+              Género
+            </p>
+            <input
+              type="radio"
+              id="feminino"
+              name="genero"
+              value="feminino"
+              checked
+            />
+            <label
+              for="feminino"
+              class="fonteUbuntu corAzulEscuro h6 font-weight-normal"
+              >Feminino</label
+            >
+            <input
+              type="radio"
+              id="masculino"
+              name="genero"
+              value="masculino"
+            />
+            <label
+              for="masculino"
+              class="fonteUbuntu corAzulEscuro h6 font-weight-normal"
+              >Masculino</label
+            >
+          </fieldset>
+        </form>
+      </section>
+      <section class="d-flex flex-column align-items-center">
+        <button
+          class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4"
+          id="registoBtn"
+        >
+          Regista-te!
+        </button>
+      </section>
+    </main>
+  </body>
+  <script type="module" src="../js/app.js"></script>
+</html>
