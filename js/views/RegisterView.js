@@ -1,8 +1,8 @@
-import UtilizadorController from "../controllers/UtilizadorController.js";
+import UserController from "../controllers/UtilizadorController.js";
 
 export default class RegistoView {
   constructor() {
-    this.utilizadorController = new UtilizadorController();
+    this.userController = new UserController();
     this.txtNome = document.getElementById("txtNome");
     this.txtApelido = document.getElementById("txtApelido");
     this.txtNomeUtilizador = document.getElementById("txtNomeUtilizador");
@@ -21,7 +21,7 @@ export default class RegistoView {
     this.registoBtn.addEventListener("click", () => {
       if (feminino.checked || this.masculino.checked) {
         if (txtPassword.value === txtConfPassword.value) {
-          this.utilizadorController.register(
+          this.userController.register(
             txtNome.value.concat("", txtApelido.value),
             txtNomeUtilizador.value,
             txtEmail.value,

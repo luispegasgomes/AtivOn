@@ -1,6 +1,6 @@
-import UtilizadorModel from "../models/UtilizadorModel.js";
+import UserModel from "../models/UserModel.js";
 
-export default class UtilizadorController {
+export default class UserController {
   constructor() {
     this.users = localStorage.users ? JSON.parse(localStorage.users) : [];
   }
@@ -16,22 +16,11 @@ export default class UtilizadorController {
       );
     } else {
       this.users.push(
-        new UtilizadorModel(
-          nome,
-          username,
-          email,
-          password,
-          dataNascimento,
-          genero
-        )
+        new UserModel(nome, username, email, password, dataNascimento, genero)
       );
       localStorage.setItem("users", JSON.stringify(this.users));
       sessionStorage.setItem("active", username);
-      if (username === "admin") {
-        location.href = "./landing_admin.html";
-      } else {
-        location.href = "./landing_user.html";
-      }
+      location.href = "./landing_user.html";
     }
   }
 
@@ -44,7 +33,7 @@ export default class UtilizadorController {
     if (utilizador) {
       sessionStorage.setItem("active", utilizador.username);
       if (utilizador.username === "admin") {
-        location.href = "./landing_admin.html";
+        location.href = "./admin_landing.html";
       } else {
         location.href = "./landing_user.html";
       }
@@ -54,21 +43,21 @@ export default class UtilizadorController {
   }
 
   checkRoute() {
-    const publicRoutes = ["index", "login", "registo"];
+    const publicRoutes = ["index", "login", "register"];
     const adminRoutes = [
-      "landing_admin",
-      "ver_utilizadores",
-      "gerir_atividades",
-      "gerir_medalhas",
+      "admin_landing",
+      "admin_users",
+      "admin_activities",
+      "admin_medals",
     ];
     const userRoutes = [
       "landing_user",
-      "perfil",
-      "jogos",
-      "jogo",
-      "estatisticas",
-      "trofeus",
-      "info",
+      "profile",
+      "games",
+      "CurioAtiv",
+      "statistics",
+      "trophies",
+      "info_Covid",
     ];
     const path = window.location.pathname;
     const file = path.substr(path.lastIndexOf("/") + 1);
@@ -87,7 +76,7 @@ export default class UtilizadorController {
       publicRoutes.some((publicRoute) => publicRoute === route)
     ) {
       if (sessionStorage.getItem("active") === "admin") {
-        location.href = "./html/landing_admin.html";
+        location.href = "./html/admin_landing.html";
       } else if (sessionStorage.getItem("active") != undefined) {
         location.href = "./html/landing_user.html";
       }
@@ -97,7 +86,7 @@ export default class UtilizadorController {
       sessionStorage.getItem("active") == "admin" &&
       userRoutes.some((userRoute) => userRoute === route)
     ) {
-      location.href = "./landing_admin.html";
+      location.href = "./admin_landing.html";
     }
 
     if (

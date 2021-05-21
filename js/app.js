@@ -1,25 +1,25 @@
-import RegistoView from "./views/RegistoView.js";
+import RegisterView from "./views/RegisterView.js";
 import LoginView from "./views/LoginView.js";
-import UtilizadorView from "./views/UtilizadorView.js";
+import UserView from "./views/UserView.js";
 
 class App {
   constructor() {
     this.routes = {
       "": [],
-      index: [UtilizadorView],
-      registo: [UtilizadorView, RegistoView],
-      login: [UtilizadorView, LoginView],
-      landing_admin: [UtilizadorView],
-      ver_utilizadores: [UtilizadorView],
-      gerir_atividades: [UtilizadorView],
-      gerir_medalhas: [UtilizadorView],
-      landing_user: [UtilizadorView],
-      perfil: [UtilizadorView],
-      jogos: [UtilizadorView],
-      jogo: [UtilizadorView],
-      estatisticas: [UtilizadorView],
-      trofeus: [UtilizadorView],
-      info: [UtilizadorView],
+      index: [UserView],
+      register: [UserView, RegisterView],
+      login: [UserView, LoginView],
+      admin_landing: [UserView],
+      admin_users: [UserView],
+      admin_activities: [UserView],
+      admin_medals: [UserView],
+      landing_user: [UserView],
+      profile: [UserView],
+      games: [UserView],
+      CurioAtiv: [UserView],
+      statistics: [UserView],
+      trophies: [UserView],
+      info_Covid: [UserView],
     };
 
     // import dummy data for testing purposes
