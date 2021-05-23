@@ -246,8 +246,9 @@ export default class AdminView {
           class="card-img-top"
           src="${icon}"
           alt="${name}"
+          height="200" width="200"
         />
-        <h5 class="card-title text-center">${name}</h5>
+        <h5 class="card-title text-center my-2">${name}</h5>
         <p class="card-text">${description}</p>
         <button class="btn btn-danger removerConquista">Remover</button>
       </div>
