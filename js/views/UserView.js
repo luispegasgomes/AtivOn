@@ -1,4 +1,4 @@
-import UserController from "../controllers/UtilizadorController.js";
+import UserController from "../controllers/UserController.js";
 
 export default class UserView {
   constructor() {

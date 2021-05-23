@@ -1,6 +1,7 @@
 import RegisterView from "./views/RegisterView.js";
 import LoginView from "./views/LoginView.js";
 import UserView from "./views/UserView.js";
+import ListingView from "./views/ListingView.js";
 
 class App {
   constructor() {
@@ -10,7 +11,7 @@ class App {
       register: [UserView, RegisterView],
       login: [UserView, LoginView],
       admin_landing: [UserView],
-      admin_users: [UserView],
+      admin_users: [UserView, ListingView],
       admin_activities: [UserView],
       admin_medals: [UserView],
       landing_user: [UserView],
@@ -32,20 +33,20 @@ class App {
   #importDataFixtures() {
     const users = [
       {
-        nome: "admin",
+        name: "admin",
         username: "admin",
         email: "",
         password: "adminpw",
-        dataNascimento: "",
-        genero: "",
+        birthdate: "",
+        gender: "",
       },
       {
-        nome: "user",
+        name: "user",
         username: "user",
         email: "user@gmail.com",
         password: "password",
-        dataNascimento: "",
-        genero: "",
+        birthdate: "2000-02-10",
+        gender: "M",
       },
     ];
 

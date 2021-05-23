@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <title>AtivOn</title>
+    <link rel="shortcut icon" href="../img/icon.png" />
+    <link rel="stylesheet" href="../css/temp-css.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
-  </script>
-  <title>AtivOn</title>
-  <link rel="shortcut icon" href="../img/icon.png" />
-  <link rel="stylesheet" href="../css/temp-css.css" />
-</head>
-
-<body>
-  <header class="fundoAmarelo d-flex justify-content-center">
-    <a href="admin_landing.html">
-      <img src="../img/logo.png" width="230" height="80" />
-    </a>
-  </header>
-
-  <main class="w-100 d-flex flex-column align-items-center py-3">
-    <h1 class="corAzul font-weight-normal fonteUbuntu">
-      Gestão de utilizadores
-    </h1>
-  </main>
-  <table class="table table-bordered d-flex flex-column align-items-center" style="text-align: center;">
+  <body>
+    <header class="fundoAmarelo d-flex justify-content-center">
+      <a href="admin_landing.html">
+        <img src="../img/logo.png" width="230" height="80" />
+      </a>
+    </header>
+    <!--
+      <table
+      class="table table-bordered d-flex flex-column align-items-center"
+      style="text-align: center"
+    >
       <tr>
         <th>Utilizador</th>
         <th>Opções</th>
@@ -37,42 +42,37 @@
       <tr>
         <td>luisgomes</td>
         <td>
-          <button type="button" class="btn btn-primary" data-toggle="modal"
-          data-target="#exampleModal" style="width: 100px; height: 35px;">Consultar</button> 
-          <button class="btn btn-warning" style="width: 100px; height: 35px;">Bloquear</button>
-          <button class="btn btn-danger" style="width: 100px; height: 35px;">Remover</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            style="width: 100px; height: 35px"
+          >
+            Consultar
+          </button>
+          <button class="btn btn-warning" style="width: 100px; height: 35px">
+            Bloquear
+          </button>
+          <button class="btn btn-danger" style="width: 100px; height: 35px">
+            Remover
+          </button>
         </td>
       </tr>
-  </table>
+    </table>
+    -->
+    <h1 class="corAzul font-weight-normal fonteUbuntu text-center my-5">
+      Gestão de utilizadores
+    </h1>
 
-  <!--MODAL SHOW USER INFORMATIONS-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Informações de utilizador</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body d-flex flex-column align-items-center">
-          <label for="txtUser">Nome:</label>
-          <input type="text" id="txtUser" class="form-control" readonly="true"><br>
-          <label for="txtEmail">Email:</label>
-          <input type="text" id="txtEmail" class="form-control" readonly="true"><br>
-          <label for="txtPassword">Password:</label>
-          <input type="text" id="txtPassword" class="form-control" readonly="true"><br>
-          <label for="txtBirthday">Data de Nascimento:</label>
-          <input type="text" id="txtBirthday" class="form-control" readonly="true"><br>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        </div>
+    <div class="row m-5">
+      <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist"></div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="nav-tabContent"></div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
+  <script type="module" src="../js/app.js"></script>
 </html>
