@@ -1,7 +1,7 @@
 import RegisterView from "./views/RegisterView.js";
 import LoginView from "./views/LoginView.js";
 import UserView from "./views/UserView.js";
-import ListingView from "./views/ListingView.js";
+import AdminView from "./views/AdminView.js";
 
 class App {
   constructor() {
@@ -11,9 +11,9 @@ class App {
       register: [UserView, RegisterView],
       login: [UserView, LoginView],
       admin_landing: [UserView],
-      admin_users: [UserView, ListingView],
-      admin_activities: [UserView, ListingView],
-      admin_medals: [UserView],
+      admin_users: [UserView, AdminView],
+      admin_activities: [UserView, AdminView],
+      admin_achievements: [UserView, AdminView],
       landing_user: [UserView],
       profile: [UserView],
       games: [UserView],
@@ -72,6 +72,14 @@ class App {
         activityQuestions: [{ question: "afirmação", type: "Falso" }],
       },
     };
+    const achievements = [
+      {
+        type: "avatar",
+        icon: "../img/cuidadoso.png",
+        name: "O Cuidadoso",
+        description: "100% de respostas certas no quiz.",
+      },
+    ];
 
     // Load the fixtures in case there is no data in the local storage
     if (!localStorage.users) {
@@ -79,6 +87,9 @@ class App {
     }
     if (!localStorage.activities) {
       localStorage.setItem("activities", JSON.stringify(activities));
+    }
+    if (!localStorage.achievements) {
+      localStorage.setItem("achievements", JSON.stringify(achievements));
     }
     if (!sessionStorage.active) {
       sessionStorage.setItem("active", undefined);

@@ -1,4 +1,4 @@
-export default class ListingView {
+export default class AdminView {
   constructor() {
     this.users = JSON.parse(localStorage.users);
     this.listTab = document.getElementById("list-tab");
@@ -28,7 +28,14 @@ export default class ListingView {
       this.addActivityQuestion();
     }
 
-    this.listMedals();
+    this.achievements = JSON.parse(localStorage.achievements);
+    this.cardsAvatares = document.getElementById("cardsAvatares");
+    this.cardsMedalhas = document.getElementById("cardsMedalhas");
+    this.addConquista = document.getElementById("addConquista");
+    if (this.cardsAvatares) {
+      this.listAchievements();
+      this.addAchievement();
+    }
   }
 
   listUsers() {
@@ -231,5 +238,83 @@ export default class ListingView {
     });
   }
 
-  listMedals() {}
+  achievementCard(icon, name, description) {
+    return `<div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <img
+          class="card-img-top"
+          src="${icon}"
+          alt="${name}"
+        />
+        <h5 class="card-title text-center">${name}</h5>
+        <p class="card-text">${description}</p>
+        <button class="btn btn-danger removerConquista">Remover</button>
+      </div>
+    </div>
+  </div>`;
+  }
+
+  listAchievements() {
+    let listAvatars = "";
+    let listMedals = "";
+    for (const achievement of this.achievements) {
+      if (achievement.type === "avatar") {
+        listAvatars += this.achievementCard(
+          achievement.icon,
+          achievement.name,
+          achievement.description
+        );
+      } else {
+        listMedals += this.achievementCard(
+          achievement.icon,
+          achievement.name,
+          achievement.description
+        );
+      }
+    }
+    this.cardsAvatares.innerHTML = listAvatars
+      ? listAvatars
+      : "<p><i>Não existem avatares.</i></p>";
+    this.cardsMedalhas.innerHTML = listMedals
+      ? listMedals
+      : "<p><i>Não existem medalhas.</i></p>";
+
+    const achievementsBtns =
+      document.getElementsByClassName("removerConquista");
+
+    for (const achievementsBtn of achievementsBtns) {
+      achievementsBtn.addEventListener("click", () => {
+        const name = achievementsBtn.parentNode.querySelector("h5").innerHTML;
+        const newAchievements = this.achievements.filter(
+          (achievement) => achievement.name !== name
+        );
+        localStorage.setItem("achievements", JSON.stringify(newAchievements));
+        location.reload();
+      });
+    }
+  }
+
+  addAchievement() {
+    this.addConquista.addEventListener("click", () => {
+      const type = prompt("Tipo (avatar/medalha)");
+      const name = prompt("Nome");
+      const icon = prompt("Icon");
+      const description = prompt("Descrição");
+
+      if (
+        (type === "avatar" || type === "medal") &&
+        !this.achievements.some(
+          (achievement) =>
+            achievement.name === name || achievement.icon === icon
+        )
+      ) {
+        this.achievements.push({ type, icon, name, description });
+        localStorage.setItem("achievements", JSON.stringify(this.achievements));
+        location.reload();
+      } else {
+        alert("Algum valor foi inválido");
+      }
+    });
+  }
 }
