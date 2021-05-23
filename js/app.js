@@ -12,7 +12,7 @@ class App {
       login: [UserView, LoginView],
       admin_landing: [UserView],
       admin_users: [UserView, ListingView],
-      admin_activities: [UserView],
+      admin_activities: [UserView, ListingView],
       admin_medals: [UserView],
       landing_user: [UserView],
       profile: [UserView],
@@ -49,10 +49,36 @@ class App {
         gender: "M",
       },
     ];
+    const activities = {
+      quiz: {
+        activityName: "QuizOn",
+        activityXP: 300,
+        activityQuestions: [
+          {
+            question: "pergunta sobre covid",
+            rightAnswer: "certo",
+            wrongAnswer: "errado",
+          },
+          {
+            question: "pergunta sobre covid2",
+            rightAnswer: "certo",
+            wrongAnswer: "errado",
+          },
+        ],
+      },
+      trueOrFalse: {
+        activityName: "CurioAtiv",
+        activityXP: 100,
+        activityQuestions: [{ question: "afirmação", type: "Falso" }],
+      },
+    };
 
     // Load the fixtures in case there is no data in the local storage
     if (!localStorage.users) {
       localStorage.setItem("users", JSON.stringify(users));
+    }
+    if (!localStorage.activities) {
+      localStorage.setItem("activities", JSON.stringify(activities));
     }
     if (!sessionStorage.active) {
       sessionStorage.setItem("active", undefined);
