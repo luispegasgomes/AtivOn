@@ -8,6 +8,9 @@ export default class UserView {
     if (this.logoutBtn) {
       this.logout();
     }
+    //classe displayUsername - vai buscar o username ao sessionStorage
+    //classe displayXP - se não existir o atributo XP, vai aparecer "Nível 1 - 0 XP"
+    // chamar vars e função no construtor, fazer lógica no displayUserInfo()
   }
 
   checkLoggedUser() {
@@ -20,4 +23,6 @@ export default class UserView {
       location.reload();
     });
   }
+
+  displayUserInfo()
 }

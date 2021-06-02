@@ -159,10 +159,3 @@ form input[type="radio"]:nth-of-type(n) {
   border-radius: 10px;
   width: 120px;
 }
-
-.btnMenu {
-  position: absolute;
-  top: 1px;
-  left: 10px;
-}
-

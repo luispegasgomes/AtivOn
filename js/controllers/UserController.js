@@ -15,11 +15,17 @@ export default class UserController {
         `Alguém já tem o nome de utilizador "${username}" ou email "${email}" `
       );
     } else {
-      this.users.push(
-        new UserModel(nome, username, email, password, dataNascimento, genero)
+      const newUser = new UserModel(
+        nome,
+        username,
+        email,
+        password,
+        dataNascimento,
+        genero
       );
+      this.users.push(newUser);
       localStorage.setItem("users", JSON.stringify(this.users));
-      sessionStorage.setItem("active", username);
+      sessionStorage.setItem("active", JSON.stringify(newUser));
       location.href = "./landing_user.html";
     }
   }
@@ -31,7 +37,7 @@ export default class UserController {
         user.password === password
     );
     if (utilizador) {
-      sessionStorage.setItem("active", utilizador.username);
+      sessionStorage.setItem("active", JSON.stringify(utilizador));
       if (utilizador.username === "admin") {
         location.href = "./admin_landing.html";
       } else {
