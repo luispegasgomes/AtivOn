@@ -1,3 +1,6 @@
+import StorageController from "../controllers/StorageController.js";
+import AdminController from "../controllers/AdminController.js";
+
 export default class AdminView {
   constructor() {
     this.users = JSON.parse(localStorage.users);
@@ -36,6 +39,9 @@ export default class AdminView {
       this.listAchievements();
       this.addAchievement();
     }
+
+    this.storageController = new StorageController();
+    this.adminController = new AdminController();
   }
 
   listUsers() {
@@ -63,18 +69,44 @@ export default class AdminView {
           <p><b>Data de nascimento:</b> ${user.birthdate}</p>
           <p><b>Género:</b> ${user.gender}</p>
           <button class="btn fundoAmarelo corAzulEscuro font-weight-bold removeUser">Remover</button>
+          <button class="btn fundoAmarelo corAzulEscuro font-weight-bold editUser">
+          ${user.type == "child" ? "Tornar admin" : "Tirar admin"}
+          </button>
+          <button class="btn fundoAmarelo corAzulEscuro font-weight-bold blockUser">
+          ${user.status == "active" ? "Bloquear" : "Desbloquear"}
+          </button>
         </article>`;
       }
     }
     this.listTab.innerHTML = textTab;
     this.navContent.innerHTML = textNav;
 
-    const btns = document.getElementsByClassName("removeUser");
-    for (const btn of btns) {
+    // remove
+    const btnsRemove = document.getElementsByClassName("removeUser");
+    for (const btn of btnsRemove) {
       const parentId = btn.parentNode.id.split("-")[1];
       btn.addEventListener("click", () => {
-        const newList = this.users.filter((user) => user.username != parentId);
-        localStorage.setItem("users", JSON.stringify(newList));
+        this.adminController.removeUser(parentId, this.users);
+        location.reload();
+      });
+    }
+
+    // edit
+    const btnsEdit = document.getElementsByClassName("editUser");
+    for (const btn of btnsEdit) {
+      const parentId = btn.parentNode.id.split("-")[1];
+      btn.addEventListener("click", () => {
+        this.adminController.editUser(parentId, this.users);
+        location.reload();
+      });
+    }
+
+    // block
+    const btnsBlock = document.getElementsByClassName("blockUser");
+    for (const btn of btnsBlock) {
+      const parentId = btn.parentNode.id.split("-")[1];
+      btn.addEventListener("click", () => {
+        this.adminController.blockUser(parentId, this.users);
         location.reload();
       });
     }
@@ -95,13 +127,16 @@ export default class AdminView {
         "Quantidade de experiência ganha",
         this.activities.quiz.activityXP
       );
-      if (nome) {
+      if (nome.trim()) {
         this.activities.quiz.activityName = nome;
       }
-      if (exp) {
+      if (exp && typeof exp == "number") {
         this.activities.quiz.activityXP = exp;
       }
-      localStorage.setItem("activities", JSON.stringify(this.activities));
+      this.storageController.updateLocalStorage(
+        "activities",
+        JSON.stringify(this.activities)
+      );
       location.reload();
     });
 
@@ -114,13 +149,16 @@ export default class AdminView {
         "Quantidade de experiência ganha",
         this.activities.trueOrFalse.activityXP
       );
-      if (nome) {
+      if (nome.trim()) {
         this.activities.trueOrFalse.activityName = nome;
       }
-      if (exp) {
+      if (exp && typeof exp == "number") {
         this.activities.trueOrFalse.activityXP = exp;
       }
-      localStorage.setItem("activities", JSON.stringify(this.activities));
+      this.storageController.updateLocalStorage(
+        "activities",
+        JSON.stringify(this.activities)
+      );
       location.reload();
     });
   }
@@ -160,11 +198,7 @@ export default class AdminView {
         const pergunta = String(
           quizBtn.parentNode.querySelector("p span").innerHTML
         );
-        const list = this.activities.quiz.activityQuestions.filter(
-          (q) => q.question != pergunta
-        );
-        this.activities.quiz.activityQuestions = list;
-        localStorage.setItem("activities", JSON.stringify(this.activities));
+        this.adminController.removeActivityQuestion("quiz", pergunta);
         location.reload();
       });
     }
@@ -176,12 +210,7 @@ export default class AdminView {
         const pergunta = String(
           trueOrFalseBtn.parentNode.querySelector("p span").innerHTML
         );
-        const list = this.activities.trueOrFalse.activityQuestions.filter(
-          (q) => q.question != pergunta
-        );
-        this.activities.trueOrFalse.activityQuestions = list;
-        localStorage.setItem("activities", JSON.stringify(this.activities));
-        console.log(localStorage.activities);
+        this.adminController.removeActivityQuestion("trueOrFalse", pergunta);
         location.reload();
       });
     }
@@ -189,49 +218,29 @@ export default class AdminView {
 
   addActivityQuestion() {
     this.addQuiz.addEventListener("click", () => {
-      const question = prompt("Pergunta");
-      const rightAnswer = prompt("Resposta Certa");
-      const wrongAnswer = prompt("Resposta Errada");
+      const question = prompt("Pergunta").trim();
+      const rightAnswer = prompt("Resposta Certa").trim();
+      const wrongAnswer = prompt("Resposta Errada").trim();
 
       if (question && rightAnswer && wrongAnswer) {
-        if (
-          !this.activities.quiz.activityQuestions.some(
-            (q) => q.question === question
-          )
-        ) {
-          this.activities.quiz.activityQuestions.push({
-            question,
-            rightAnswer,
-            wrongAnswer,
-          });
-          localStorage.setItem("activities", JSON.stringify(this.activities));
-          location.reload();
-        } else {
-          alert("Pergunta já existente");
-        }
+        this.adminController.addActivityQuestion("quiz", {
+          question,
+          rightAnswer,
+          wrongAnswer,
+        });
       } else {
         alert("Alguma coisa deu errado ao adicionar a pergunta");
       }
     });
 
     this.addTrueOrFalse.addEventListener("click", () => {
-      const question = prompt("Pergunta");
-      const type = prompt("Tipo (Verdadeiro/Falso)");
+      const question = prompt("Pergunta").trim();
+      const type = prompt("Tipo (Verdadeiro/Falso)").trim();
       if (question && (type === "Verdadeiro" || type === "Falso")) {
-        if (
-          !this.activities.trueOrFalse.activityQuestions.some(
-            (q) => q.question === question
-          )
-        ) {
-          this.activities.quiz.activityQuestions.push({
-            question,
-            type,
-          });
-          localStorage.setItem("activities", JSON.stringify(this.activities));
-          location.reload();
-        } else {
-          alert("Pergunta já existente");
-        }
+        this.adminController.addActivityQuestion("trueOrFalse", {
+          question,
+          type,
+        });
       } else {
         alert("Alguma coisa deu errado ao adicionar a pergunta");
       }
@@ -290,7 +299,10 @@ export default class AdminView {
         const newAchievements = this.achievements.filter(
           (achievement) => achievement.name !== name
         );
-        localStorage.setItem("achievements", JSON.stringify(newAchievements));
+        this.storageController.updateLocalStorage(
+          "achievements",
+          JSON.stringify(newAchievements)
+        );
         location.reload();
       });
     }
@@ -311,7 +323,10 @@ export default class AdminView {
         )
       ) {
         this.achievements.push({ type, icon, name, description });
-        localStorage.setItem("achievements", JSON.stringify(this.achievements));
+        this.storageController.updateLocalStorage(
+          "achievements",
+          JSON.stringify(this.achievements)
+        );
         location.reload();
       } else {
         alert("Algum valor foi inválido");

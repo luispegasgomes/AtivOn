@@ -1,4 +1,5 @@
 import UserController from "../controllers/UserController.js";
+import StorageController from "../controllers/StorageController.js";
 
 export default class UserView {
   constructor() {
@@ -10,6 +11,9 @@ export default class UserView {
     }
     this.displayUsername = document.getElementsByClassName("displayUsername");
     this.displayXP = document.getElementsByClassName("displayXP");
+    this.userName = document.getElementById("userName");
+    this.userEmail = document.getElementById("userEmail");
+    this.userBirthdate = document.getElementById("userBirthdate");
     if (this.displayUsername || this.displayXP) {
       this.displayUserInfo();
     }
@@ -18,6 +22,7 @@ export default class UserView {
     if (this.profileForm) {
       this.updatePassword();
     }
+    this.storageController = new StorageController();
   }
 
   checkLoggedUser() {
@@ -26,7 +31,10 @@ export default class UserView {
 
   logout() {
     this.logoutBtn.addEventListener("click", () => {
-      sessionStorage.setItem("active", JSON.stringify({ type: "none" }));
+      this.storageController.updateSessionStorage(
+        "active",
+        JSON.stringify({ type: "none" })
+      );
       location.reload();
     });
   }
@@ -34,10 +42,20 @@ export default class UserView {
   displayUserInfo() {
     const userInfo = JSON.parse(sessionStorage.getItem("active"));
     for (const displayUsername of this.displayUsername) {
-      displayUsername.innerHTML = userInfo.username;
+      this.displayUsername.innerHTML = userInfo.username;
     }
     for (const displayXP of this.displayXP) {
-      displayXP.innerHTML = userInfo.xp ? `${userInfo.xp} XP` : `0 XP`;
+      this.displayXP.innerHTML = userInfo.xp ? `${userInfo.xp} XP` : `0 XP`;
+    }
+
+    if (this.userName) {
+      this.userName.innerHTML = userInfo.name;
+    }
+    if (this.userEmail) {
+      this.userEmail.innerHTML = userInfo.email;
+    }
+    if (this.userBirthdate) {
+      this.userBirthdate.innerHTML = userInfo.birthdate;
     }
   }
 
@@ -52,7 +70,7 @@ export default class UserView {
       } else if (txtPassword.value === userInfo.password) {
         alert("Não podes mudar para a mesma password");
       } else {
-        sessionStorage.setItem(
+        this.storageController.updateSessionStorage(
           "active",
           JSON.stringify({ ...userInfo, password: txtPassword.value })
         );
@@ -62,7 +80,10 @@ export default class UserView {
             ? { ...userItem, password: txtPassword.value }
             : userItem
         );
-        localStorage.setItem("users", JSON.stringify(newUserList));
+        this.storageController.updateLocalStorage(
+          "users",
+          JSON.stringify(newUserList)
+        );
         alert("Password alterada com sucesso");
         location.href = "./landing_user.html";
       }

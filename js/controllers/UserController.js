@@ -1,8 +1,10 @@
 import UserModel from "../models/UserModel.js";
+import StorageController from "./StorageController.js";
 
 export default class UserController {
   constructor() {
     this.users = localStorage.users ? JSON.parse(localStorage.users) : [];
+    this.storageController = new StorageController();
   }
 
   register(nome, username, email, password, dataNascimento, genero) {
@@ -26,8 +28,14 @@ export default class UserController {
         "active"
       );
       this.users.push(newUser);
-      localStorage.setItem("users", JSON.stringify(this.users));
-      sessionStorage.setItem("active", JSON.stringify(newUser));
+      this.storageController.updateLocalStorage(
+        "users",
+        JSON.stringify(this.users)
+      );
+      this.storageController.updateSessionStorage(
+        "active",
+        JSON.stringify(newUser)
+      );
       location.href = "./landing_user.html";
     }
   }
@@ -39,7 +47,14 @@ export default class UserController {
         user.password === password
     );
     if (utilizador) {
-      sessionStorage.setItem("active", JSON.stringify(utilizador));
+      if (utilizador.status == "active") {
+        this.storageController.updateSessionStorage(
+          "active",
+          JSON.stringify(utilizador)
+        );
+      } else {
+        alert("Utilizador bloqueado");
+      }
     } else {
       alert("Erro!");
     }
