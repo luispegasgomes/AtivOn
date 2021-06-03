@@ -42,10 +42,10 @@ export default class UserView {
   displayUserInfo() {
     const userInfo = JSON.parse(sessionStorage.getItem("active"));
     for (const displayUsername of this.displayUsername) {
-      this.displayUsername.innerHTML = userInfo.username;
+      displayUsername.innerHTML = userInfo.username;
     }
     for (const displayXP of this.displayXP) {
-      this.displayXP.innerHTML = userInfo.xp ? `${userInfo.xp} XP` : `0 XP`;
+      displayXP.innerHTML = userInfo.xp ? `${userInfo.xp} XP` : `0 XP`;
     }
 
     if (this.userName) {
