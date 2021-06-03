@@ -17,6 +17,11 @@ export default class LoginView {
           this.txtUtilizador.value,
           this.txtPassword.value
         );
+        if (this.userController.getType() === "admin") {
+          location.href = "./admin_landing.html";
+        } else {
+          location.href = "./landing_user.html";
+        }
       } catch (e) {
         alert("Valores inválidos");
       }

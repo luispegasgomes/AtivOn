@@ -21,7 +21,9 @@ export default class UserController {
         email,
         password,
         dataNascimento,
-        genero
+        genero,
+        "child",
+        "active"
       );
       this.users.push(newUser);
       localStorage.setItem("users", JSON.stringify(this.users));
@@ -38,14 +40,13 @@ export default class UserController {
     );
     if (utilizador) {
       sessionStorage.setItem("active", JSON.stringify(utilizador));
-      if (utilizador.username === "admin") {
-        location.href = "./admin_landing.html";
-      } else {
-        location.href = "./landing_user.html";
-      }
     } else {
       alert("Erro!");
     }
+  }
+
+  getType() {
+    return JSON.parse(sessionStorage.getItem("active")).type;
   }
 
   checkRoute() {
@@ -68,9 +69,10 @@ export default class UserController {
     const path = window.location.pathname;
     const file = path.substr(path.lastIndexOf("/") + 1);
     const route = file.split(".")[0];
+    const activeUser = JSON.parse(sessionStorage.getItem("active"));
 
     if (
-      sessionStorage.getItem("active") == "undefined" &&
+      activeUser.type == "none" &&
       (adminRoutes.some((adminRoute) => adminRoute === route) ||
         userRoutes.some((userRoute) => userRoute === route))
     ) {
@@ -78,26 +80,26 @@ export default class UserController {
     }
 
     if (
-      sessionStorage.getItem("active") != "undefined" &&
+      activeUser.type != "none" &&
       publicRoutes.some((publicRoute) => publicRoute === route)
     ) {
-      if (sessionStorage.getItem("active") === "admin") {
+      if (activeUser.type === "admin") {
         location.href = "./html/admin_landing.html";
-      } else if (sessionStorage.getItem("active") != undefined) {
+      } else if (activeUser.type != undefined) {
         location.href = "./html/landing_user.html";
       }
     }
 
     if (
-      sessionStorage.getItem("active") == "admin" &&
+      activeUser.type == "admin" &&
       userRoutes.some((userRoute) => userRoute === route)
     ) {
       location.href = "./admin_landing.html";
     }
 
     if (
-      sessionStorage.getItem("active") != "undefined" &&
-      sessionStorage.getItem("active") != "admin" &&
+      activeUser.type != "none" &&
+      activeUser.type != "admin" &&
       adminRoutes.some((adminRoute) => adminRoute === route)
     ) {
       location.href = "./landing_user.html";

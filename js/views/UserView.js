@@ -26,7 +26,7 @@ export default class UserView {
 
   logout() {
     this.logoutBtn.addEventListener("click", () => {
-      sessionStorage.setItem("active", undefined);
+      sessionStorage.setItem("active", JSON.stringify({ type: "none" }));
       location.reload();
     });
   }
