@@ -15,24 +15,59 @@
 </head>
 
 <body>
-  <!--NAVBAR-->
-  <nav class="navbar fundoAmarelo">
-    <div class="container-fluid">
-      <button class="d-flex flex-column navbar-toggler btnMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <img src="../img/menu.png" width="35" />
-      </button>
-      <a class="d-flex flex-column navbar-brand mx-auto" href="./landing_user.html">
-        <img src="../img/logo.png" width="230" height="80" />
-      </a>
-      <div>
-        <div class="d-flex align-items-end">
-          <a href="./profile.html" class="d-flex flex-column align-items-end justify-content-center">
-            <p class="h4 corAzulEscuro fonteChewy">user</p>
-            <p class="corAzul fonteChewy">Nível 1 - 10 XP</p>
+    <!--NAVBAR-->
+    <nav class="navbar fundoAmarelo">
+      <div
+        class="
+          container-fluid
+          d-flex
+          justify-content-between
+          align-items-center
+          flex-nowrap
+          px-1
+        "
+      >
+        <button
+          class="d-flex flex-column navbar-toggler btnMenu"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          style="width: auto"
+        >
+          <img src="../img/menu.png" width="35" />
+        </button>
+        <a class="navbar-brand" href="./landing_user.html">
+          <img src="../img/logo.png" width="215" height="80" />
+        </a>
+        <div class="d-flex align-items-end justify-content-end">
+          <a
+            href="./profile.html"
+            class="
+              d-flex
+              flex-column
+              align-items-end
+              justify-content-center
+              px-2
+            "
+          >
+            <p class="h4 corAzulEscuro fonteChewy displayUsername">user</p>
+            <p class="small corAzul fonteChewy displayXP">XP</p>
           </a>
+          <button
+            class="
+              btn
+              d-flex
+              align-items-center
+              justify-content-end
+              fonteUbuntu
+            "
+            id="logout"
+            style="width: auto"
+          >
+            <img src="../img/Logout_Ico.png" width="30" class="ml-2" />
+          </button>
         </div>
       </div>
-  </nav>
+    </nav>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
@@ -60,25 +95,6 @@
               </li>
             </ul>
           </div>
-          <!--PROFILE SECTION-->
-          <div class="d-flex align-items-center justify-content-center">
-            <div class="
-                  profile
-                  d-flex
-                  flex-column
-                  align-items-center
-                  justify-content-center
-                ">
-              <img src="../img/cuidadoso.png" width="80" />
-              <p class="h4 corLaranja fonteChewy">user</p>
-              <p class="small corAzulClaro fonteChewy">Nível 1 - 10 XP</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn" data-bs-dismiss="modal">
-            <img src="../img/Logout_Ico.png" width="30" />
-          </button>
         </div>
       </div>
     </div>
