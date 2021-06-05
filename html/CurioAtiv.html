@@ -4,15 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
   </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
-  </script>
-  <title>AtivOn</title>
+  <title>Verdadeiro ou Falso?</title>
   <link rel="shortcut icon" href="../img/icon.png" />
   <link rel="stylesheet" href="../css/global.css" />
 </head>
@@ -20,13 +17,42 @@
 <body>
   <!--NAVBAR-->
   <nav class="navbar fundoAmarelo">
-    <div class="container-fluid">
-      <button class="d-flex flex-column navbar-toggler btnMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <div class="
+          container-fluid
+          d-flex
+          justify-content-between
+          align-items-center
+          flex-nowrap
+          px-1
+        ">
+      <button class="d-flex flex-column navbar-toggler btnMenu" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        style="width: auto">
         <img src="../img/menu.png" width="35" />
       </button>
-      <a class="d-flex flex-column navbar-brand mx-auto" href="landing.html">
-        <img src="../img/logo.png" width="230" height="80" />
+      <a class="navbar-brand" href="./landing_user.html">
+        <img src="../img/logo.png" width="215" height="80" />
       </a>
+      <div class="d-flex align-items-end justify-content-end">
+        <a href="./profile.html" class="
+              d-flex
+              flex-column
+              align-items-end
+              justify-content-center
+              px-2
+            ">
+          <p class="h4 corAzulEscuro fonteChewy displayUsername">user</p>
+          <p class="small corAzul fonteChewy displayXP">XP</p>
+        </a>
+        <button class="
+              btn
+              d-flex
+              align-items-center
+              justify-content-end
+              fonteUbuntu
+            " id="logout" style="width: auto">
+          <img src="../img/Logout_Ico.png" width="30" class="ml-2" />
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -87,25 +113,25 @@
         <h1>Ativ</h1>
       </div>
 
-      <p class="d-flex align-items-center justify-content-center">
-        <span class="fonteChewy" style="text-align: center;">Uma pessoa pode transmitir o coronavírus mesmo sem
-          apresentar qualquer sintoma.</span>
+      <p class="d-flex align-items-center justify-content-center fonteChewy mt-3 fonteUbuntu corAzul col-10 col-md-5"
+        style="text-align: center; font-size: 25px;">Uma pessoa pode transmitir o coronavírus mesmo sem apresentar
+        qualquer sintoma.
       </p>
-      <div class="d-flex flex-column align-items-center col-10 my-2">
-        <button class="mb-3 col-5" style="background-color: #79C368; color: white;">VERDADEIRO</button>
-        <button class="mb-3 col-5" style="background-color: RED; color: white;">FALSO</button>
-
+      <div class="d-flex flex-column align-items-center col-12 col-md-6">
+        <button class="mb-3 col-4" style="background-color: #79C368; color: white;">VERDADEIRO</button>
+        <button class="mb-3 col-4 mt-1" style="background-color: RED; color: white;">FALSO</button>
       </div>
     </section>
 
-    <section class="d-flex align-items-center justify-content-center">
-      <div class="my-3 d-flex flex-column align-items-center justify-content-center" style="background-color: #8ECAE6; border-radius: 20px;">
-        <p class="fonteUbuntu corAzulEscuro">Pergunta 1/10</p>
-      <p class="fonteUbuntu corAzulEscuro">Respostas corretas: 0</p>
+    <section class="d-flex align-items-center justify-content-center mt-5">
+      <div class="my-3 d-flex flex-column align-items-center justify-content-center"
+        style="background-color: #8ECAE6; border-radius: 10px; width: 200px;">
+        <div class="fonteUbuntu corAzulEscuro">Questão 1/10</div>
+        <div class="fonteUbuntu corAzulEscuro">Respostas corretas: 0</div>
       </div>
       
-      <button class="col-2" style="background-color: #8ECAE6;">
-        <img src="../img/Atividades_Ico.png" width="80px">
+      <button style="width: 50px; border-radius: 10px;" class="mx-3 col-2 col-md-1 d-flex justify-content-center">
+        <img src="../img/Seta_ico.png" width="80px">
       </button>
     </section>
   </main>
