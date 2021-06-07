@@ -205,6 +205,10 @@ class App {
           },
         ],
       },
+      fillTheSpaces: {
+        activityName: "Completa",
+        activityXP: 30,
+      },
     };
     const achievements = [
       {

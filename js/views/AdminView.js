@@ -16,8 +16,11 @@ export default class AdminView {
     this.quizXP = document.getElementById("quizXP");
     this.trueOrFalseNome = document.getElementById("trueOrFalseNome");
     this.trueOrFalseXP = document.getElementById("trueOrFalseXP");
+    this.fillSpacesNome = document.getElementById("fillSpacesNome");
+    this.fillSpacesXP = document.getElementById("fillSpacesXP");
     this.configQuiz = document.getElementById("configQuiz");
     this.configTrueOrFalse = document.getElementById("configTrueOrFalse");
+    this.configFillSpaces = document.getElementById("configFillSpaces");
     // listActivitiesQuestions
     this.perguntasQuiz = document.getElementById("perguntasQuiz");
     this.perguntasTrueOrFalse = document.getElementById("perguntasTrueOrFalse");
@@ -117,12 +120,15 @@ export default class AdminView {
     this.quizXP.innerHTML = `${this.activities.quiz.activityXP} XP`;
     this.trueOrFalseNome.innerHTML = this.activities.trueOrFalse.activityName;
     this.trueOrFalseXP.innerHTML = `${this.activities.trueOrFalse.activityXP} XP`;
+    this.fillSpacesNome.innerHTML = this.activities.fillTheSpaces.activityName;
+    this.fillSpacesXP.innerHTML = `${this.activities.fillTheSpaces.activityXP} XP`;
 
     this.configQuiz.addEventListener("click", () => {
       const nome = prompt(
         "Novo nome para o quiz",
         this.activities.quiz.activityName
       );
+      console.log(nome);
       const exp = prompt(
         "Quantidade de experiência ganha",
         this.activities.quiz.activityXP
@@ -130,8 +136,8 @@ export default class AdminView {
       if (nome.trim()) {
         this.activities.quiz.activityName = nome;
       }
-      if (exp && typeof exp == "number") {
-        this.activities.quiz.activityXP = exp;
+      if (exp) {
+        this.activities.quiz.activityXP = Number(exp);
       }
       this.storageController.updateLocalStorage(
         "activities",
@@ -152,8 +158,30 @@ export default class AdminView {
       if (nome.trim()) {
         this.activities.trueOrFalse.activityName = nome;
       }
-      if (exp && typeof exp == "number") {
-        this.activities.trueOrFalse.activityXP = exp;
+      if (exp) {
+        this.activities.trueOrFalse.activityXP = Number(exp);
+      }
+      this.storageController.updateLocalStorage(
+        "activities",
+        JSON.stringify(this.activities)
+      );
+      location.reload();
+    });
+
+    this.configFillSpaces.addEventListener("click", () => {
+      const nome = prompt(
+        "Novo nome para o completar os espaços",
+        this.activities.fillTheSpaces.activityName
+      );
+      const exp = prompt(
+        "Quantidade de experiência ganha",
+        this.activities.fillTheSpaces.activityXP
+      );
+      if (nome.trim()) {
+        this.activities.fillTheSpaces.activityName = nome;
+      }
+      if (exp) {
+        this.activities.fillTheSpaces.activityXP = Number(exp);
       }
       this.storageController.updateLocalStorage(
         "activities",
