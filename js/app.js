@@ -2,6 +2,7 @@ import RegisterView from "./views/RegisterView.js";
 import LoginView from "./views/LoginView.js";
 import UserView from "./views/UserView.js";
 import AdminView from "./views/AdminView.js";
+import GameView from "./views/GameView.js";
 
 class App {
   constructor() {
@@ -14,9 +15,11 @@ class App {
       admin_users: [UserView, AdminView],
       admin_activities: [UserView, AdminView],
       admin_achievements: [UserView, AdminView],
-      landing_user: [UserView],
+      landing_user: [UserView, GameView],
       profile: [UserView],
       games: [UserView],
+      completa: [UserView, GameView],
+      quizOn: [UserView, GameView],
       CurioAtiv: [UserView],
       statistics: [UserView],
       trophies: [UserView],
