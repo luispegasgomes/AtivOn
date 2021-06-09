@@ -45,26 +45,30 @@ export default class GameView {
   checkValues() {
     this.completaSend.addEventListener("click", () => {
       const inputs = document.getElementsByClassName("completaInput");
-      const question = JSON.parse(localStorage.getItem("activities"))
-        .fillTheSpaces.activityQuestions;
-      const arrText = question.text.split(" ");
+      const fillTheSpaces = JSON.parse(
+        localStorage.getItem("activities")
+      ).fillTheSpaces;
+      const arrText = fillTheSpaces.activityQuestions.text.split(" ");
       let counter = 0;
       for (let i = 0; i < inputs.length; i++) {
-        const text = arrText[question.holes[i]];
+        const text = arrText[fillTheSpaces.activityQuestions.holes[i]];
         if (inputs[i].value == text) {
           counter += 1;
         }
       }
       this.gameController.finishActivity("fillTheSpaces", counter);
       Swal.fire({
-        imageUrl: '../img/Troféu_ico.png',
+        imageUrl: "../img/Troféu_ico.png",
         imageWidth: 200,
         imageHeight: 200,
-        title: 'Completa!',
-        html: 'Acertaste ${counter} espaços, acumulaste mais 3000 XP.',
-        confirmButtonColor: '#8ecae6',
-        confirmButtonText: '<a href="./landing_user.html">Volta para o início!</a>',
-      })
+        title: "Completa!",
+        html: `Acertaste ${counter} espaços, acumulaste mais ${
+          counter * fillTheSpaces.activityXP
+        } XP.`,
+        confirmButtonColor: "#8ecae6",
+        confirmButtonText:
+          '<a href="./landing_user.html">Volta para o início!</a>',
+      });
       //location.href = "./landing_user.html";
     });
   }
