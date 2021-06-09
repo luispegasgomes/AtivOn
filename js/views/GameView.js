@@ -31,10 +31,9 @@ export default class GameView {
     }
   }
 
-
   checkValues() {
-    let counter = 0;
-    this.completaSend.addEventListener("click", function () {
+    this.completaSend.addEventListener("click", () => {
+      let counter = 0;
       const tratamento = document.getElementById("completaTratamento");
       const sintomas = document.getElementById("completaSintomas");
       const oms = document.getElementById("completaOMS");
@@ -56,6 +55,9 @@ export default class GameView {
       if (mascara.value == "máscara") {
         counter += 1;
       }
+      if (metros.value == "metros") {
+        counter += 1;
+      }
       if (sns24.value == "SNS24") {
         counter += 1;
       }
@@ -65,16 +67,10 @@ export default class GameView {
       if (dias.value == "dias") {
         counter += 1;
       }
-      if (metros.value == "metros") {
-        counter += 1;
-      }
+      alert(`Acertou em ${counter} respostas`);
 
       this.gameController.finishActivity("fillTheSpaces", counter);
+      location.href = "./landing_user.html";
     });
-
-
-    // verificar valores dos inputs e somar +1 a cada valor certo
-    // no fim tirar comentário da seguinte linha (e meter dentro do eventListener):
-    // this.gameController.finishActivity("fillTheSpaces", counter)
   }
 }

@@ -29,15 +29,16 @@ export default class GameController {
   }
 
   finishActivity(activity, counter) {
+    console.log("a");
     const activityXP =
       activity == "quiz"
         ? this.activities.quiz.activityXP
         : this.activities.fillTheSpaces.activityXP;
     const totalObtained = activityXP * counter;
-    this.userLogged = updateXP(totalObtained);
+    this.userLogged = this.updateXP(totalObtained);
     this.userList.map((user) =>
       user.username === this.userLogged.username ? this.userLogged : user
     );
-    updateStorage();
+    this.updateStorage();
   }
 }
