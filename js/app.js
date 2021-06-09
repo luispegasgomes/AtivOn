@@ -131,6 +131,10 @@ class App {
       fillTheSpaces: {
         activityName: "Completa",
         activityXP: 30,
+        activityQuestions: {
+          text: `O tratamento para a infeção por este novo coronavírus é dirigido aos sinais e sintomas que os doentes apresentam e tem como objetivo proporcionar alívio e maior conforto aos doentes. À data, considerando o conhecimento científico atual e as recomendações da OMS , encontram-se em investigação, algumas estratégias terapêuticas apontadas como potenciais candidatos terapêuticos. É recomendado o uso de máscara e o afastamento de 2 metros de distância. Caso seja necessário, a pessoa deverá contactar o SNS24 para ajuda. Os sintomas associados são febre , tosse e falta de ar e o período de confinamento das pessoas infetadas é de 14 dias .`,
+          holes: [1, 14, 41, 59, 65, 76, 83, 101],
+        },
       },
     };
     const achievements = [

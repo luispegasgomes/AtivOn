@@ -8,26 +8,6 @@ export default class GameController {
     this.storageController = new StorageController();
   }
 
-  updateXP(totalObtained) {
-    return {
-      ...this.userLogged,
-      xp: this.userLogged.xp
-        ? this.userLogged.xp + totalObtained
-        : totalObtained,
-    };
-  }
-
-  updateStorage() {
-    this.storageController.updateLocalStorage(
-      "users",
-      JSON.stringify(this.userList)
-    );
-    this.storageController.updateSessionStorage(
-      "active",
-      JSON.stringify(this.userLogged)
-    );
-  }
-
   finishActivity(activity, counter) {
     console.log("a");
     const activityXP =
@@ -35,10 +15,19 @@ export default class GameController {
         ? this.activities.quiz.activityXP
         : this.activities.fillTheSpaces.activityXP;
     const totalObtained = activityXP * counter;
-    this.userLogged = this.updateXP(totalObtained);
-    this.userList.map((user) =>
+    this.userLogged = {
+      ...this.userLogged,
+      xp: this.userLogged.xp
+        ? this.userLogged.xp + totalObtained
+        : totalObtained,
+    };
+    const newList = this.userList.map((user) =>
       user.username === this.userLogged.username ? this.userLogged : user
     );
-    this.updateStorage();
+    this.storageController.updateLocalStorage("users", JSON.stringify(newList));
+    this.storageController.updateSessionStorage(
+      "active",
+      JSON.stringify(this.userLogged)
+    );
   }
 }

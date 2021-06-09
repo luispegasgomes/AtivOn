@@ -5,19 +5,14 @@ export default class GameView {
     this.gameNameCompleta = document.getElementById("gameNameCompleta");
     this.gameNameQuizOn = document.getElementById("gameNameQuizOn");
     this.showGamesName();
+    this.textCompleta = document.getElementById("textCompleta");
+    if (this.textCompleta) {
+      this.printText();
+    }
     this.completaSend = document.getElementById("completaSend");
-    this.completaTratamento = document.getElementById("completaTratamento");
-    this.completaSintomas = document.getElementById("completaSintomas");
-    this.completaOMS = document.getElementById("completaOMS");
-    this.completaMascara = document.getElementById("completaMascara");
-    this.completaMetros = document.getElementById("completaMetros");
-    this.completaSNS24 = document.getElementById("completaSNS24");
-    this.completaFebre = document.getElementById("completaFebre");
-    this.completaDias = document.getElementById("completaDias");
     if (this.completaSend) {
       this.checkValues();
     }
-
     this.gameController = new GameController();
   }
 
@@ -31,44 +26,35 @@ export default class GameView {
     }
   }
 
+  printText() {
+    const question = JSON.parse(localStorage.getItem("activities"))
+      .fillTheSpaces.activityQuestions;
+    const arrText = question.text.split(" ");
+    let text = "";
+    for (let i = 0; i < arrText.length; i++) {
+      if (question.holes.includes(i)) {
+        text += `<input type="text" class="completaInput"> `;
+      } else {
+        text += arrText[i] + " ";
+      }
+    }
+
+    this.textCompleta.innerHTML = `<p>${text}</p>`;
+  }
+
   checkValues() {
     this.completaSend.addEventListener("click", () => {
+      const inputs = document.getElementsByClassName("completaInput");
+      const question = JSON.parse(localStorage.getItem("activities"))
+        .fillTheSpaces.activityQuestions;
+      const arrText = question.text.split(" ");
       let counter = 0;
-      const tratamento = document.getElementById("completaTratamento");
-      const sintomas = document.getElementById("completaSintomas");
-      const oms = document.getElementById("completaOMS");
-      const mascara = document.getElementById("completaMascara");
-      const metros = document.getElementById("completaMetros");
-      const sns24 = document.getElementById("completaSNS24");
-      const dias = document.getElementById("completaDias");
-      const febre = document.getElementById("completaFebre");
-
-      if (tratamento.value == "tratamento") {
-        counter += 1;
+      for (let i = 0; i < inputs.length; i++) {
+        const text = arrText[question.holes[i]];
+        if (inputs[i].value == text) {
+          counter += 1;
+        }
       }
-      if (sintomas.value == "sintomas") {
-        counter += 1;
-      }
-      if (oms.value == "OMS") {
-        counter += 1;
-      }
-      if (mascara.value == "máscara") {
-        counter += 1;
-      }
-      if (metros.value == "metros") {
-        counter += 1;
-      }
-      if (sns24.value == "SNS24") {
-        counter += 1;
-      }
-      if (febre.value == "febre") {
-        counter += 1;
-      }
-      if (dias.value == "dias") {
-        counter += 1;
-      }
-      alert(`Acertou em ${counter} respostas`);
-
       this.gameController.finishActivity("fillTheSpaces", counter);
       location.href = "./landing_user.html";
     });
