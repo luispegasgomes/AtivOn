@@ -14,13 +14,21 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <title>Completa os espaços!</title>
     <link rel="shortcut icon" href="../img/icon.png" />
     <link rel="stylesheet" href="../css/global.css" />
     <script>
-      Swal.fire('Any fool can use a computer')
+      import swal from'sweetalert2';
+      Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
     </script>
+
   </head>
 
   <body>
@@ -182,7 +190,6 @@
         </button>
       </section>
     </div>
-    <button>ola</button>
   </body>
   <script type="module" src="../js/app.js"></script>
 </html>
