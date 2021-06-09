@@ -62,9 +62,8 @@ export default class GameView {
         imageHeight: 200,
         title: 'Completa!',
         html: 'Acertaste ${counter} espaços, acumulaste mais 3000 XP.',
-        confirmButtonColor: '#023047',
-        confirmButtonText: 'Volta para o início!',
-        confirmButtonL: './landing_user.html',
+        confirmButtonColor: '#8ecae6',
+        confirmButtonText: '<a href="./landing_user.html">Volta para o início!</a>',
       })
       //location.href = "./landing_user.html";
     });
