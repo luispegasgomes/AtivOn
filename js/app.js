@@ -18,12 +18,14 @@ class App {
       landing_user: [UserView, GameView],
       profile: [UserView],
       games: [UserView],
+      activities: [UserView, GameView],
       completa: [UserView, GameView],
       quizOn: [UserView, GameView],
       CurioAtiv: [UserView],
-      statistics: [UserView],
+      leaderboard: [UserView],
       trophies: [UserView],
       info_Covid: [UserView],
+      statistics: [UserView],
     };
 
     // import dummy data for testing purposes
@@ -124,87 +126,6 @@ class App {
               "Como é que se tem a certeza se estamos infetados com coronavírus SARS-CoV-2?",
             rightAnswer: "Se tivermos febre ou tosse.",
             wrongAnswer: "Só através de uma análise positiva.",
-          },
-        ],
-      },
-      trueOrFalse: {
-        activityName: "CurioAtiv",
-        activityXP: 100,
-        activityQuestions: [
-          {
-            question:
-              "Se sentir sintomas associados à COVID-19, como febre, tosse, cansaço e por vezes perda de olfato e/ou de paladar devo ficar em casa em «isolamento» e ligar para o SNS24.",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "O coronavírus transmite-se de pessoa-a-pessoa por contacto próximo com pessoas infetadas pelo SARS-CoV-2 (transmissão direta), ou através do contacto com superfícies e objetos contaminados (transmissão indireta).",
-            type: "Verdadeiro",
-          },
-          {
-            question: "As vacinas contra a COVID-19 não podem causar doença.",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "Lavar as mãos frequentemente é uma prática que nos ajuda a proteger contra a COVID-19 e outras doenças ou microrganismos.",
-            type: "Verdadeiro",
-          },
-          {
-            question: "A vacina contra a COVID-19 é obrigatória.",
-            type: "Falso",
-          },
-          {
-            question: "Este vírus (o SARS-CoV-2) é o mais grave que se conhece",
-            type: "Falso",
-          },
-          {
-            question:
-              "As vacinas contra a COVID-19 são seguras para utilização nos adultos.",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "Os vírus são pequenos agentes infeciosos responsáveis por muitas e diferentes doenças, e só são visíveis através de microscópios potentes.",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "Os investigadores ainda não começaram a investigar o tratamento para a COVID-19.",
-            type: "Falso",
-          },
-          {
-            question: "Os antibióticos existem para combater vírus",
-            type: "Falso",
-          },
-          {
-            question:
-              "A vacina da gripe sazonal também ajuda a evitar a COVID-19",
-            type: "Falso",
-          },
-          {
-            question: "Quem já foi vacinado não precisa de utilizar máscara",
-            type: "Falso",
-          },
-          {
-            question:
-              "Os vírus, na sua maioria, são resistentes e não morrem se forem refrigerados ou mesmo congelados",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "Coronavírus é uma família de vírus, onde se encontra este novo vírus, o SARS-CoV-2, que pode provocar a doença designada COVID-19",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "Podemos apanhar vírus ou bactérias em alimentos crus ou mal cozinhados",
-            type: "Verdadeiro",
-          },
-          {
-            question:
-              "Os coronavírus são compostos por um núcleo de material genético rodeado por um envelope de picos de proteínas, o que lhe dá a aparência de uma coroa. É esta a razão para a sua denominação",
-            type: "Verdadeiro",
           },
         ],
       },
