@@ -56,7 +56,17 @@ export default class GameView {
         }
       }
       this.gameController.finishActivity("fillTheSpaces", counter);
-      location.href = "./landing_user.html";
+      Swal.fire({
+        imageUrl: '../img/Troféu_ico.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        title: 'Completa!',
+        html: 'Acertaste ${counter} espaços, acumulaste mais 3000 XP.',
+        confirmButtonColor: '#023047',
+        confirmButtonText: 'Volta para o início!',
+        confirmButtonL: './landing_user.html',
+      })
+      //location.href = "./landing_user.html";
     });
   }
 }
