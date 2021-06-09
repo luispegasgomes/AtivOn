@@ -31,8 +31,48 @@ export default class GameView {
     }
   }
 
+
   checkValues() {
-    // eventListener de this.completaSend
+    let counter = 0;
+    this.completaSend.addEventListener("click", function () {
+      const tratamento = document.getElementById("completaTratamento");
+      const sintomas = document.getElementById("completaSintomas");
+      const oms = document.getElementById("completaOMS");
+      const mascara = document.getElementById("completaMascara");
+      const metros = document.getElementById("completaMetros");
+      const sns24 = document.getElementById("completaSNS24");
+      const dias = document.getElementById("completaDias");
+      const febre = document.getElementById("completaFebre");
+
+      if (tratamento.value == "tratamento") {
+        counter += 1;
+      }
+      if (sintomas.value == "sintomas") {
+        counter += 1;
+      }
+      if (oms.value == "OMS") {
+        counter += 1;
+      }
+      if (mascara.value == "máscara") {
+        counter += 1;
+      }
+      if (sns24.value == "SNS24") {
+        counter += 1;
+      }
+      if (febre.value == "febre") {
+        counter += 1;
+      }
+      if (dias.value == "dias") {
+        counter += 1;
+      }
+      if (metros.value == "metros") {
+        counter += 1;
+      }
+
+      this.gameController.finishActivity("fillTheSpaces", counter);
+    });
+
+
     // verificar valores dos inputs e somar +1 a cada valor certo
     // no fim tirar comentário da seguinte linha (e meter dentro do eventListener):
     // this.gameController.finishActivity("fillTheSpaces", counter)
