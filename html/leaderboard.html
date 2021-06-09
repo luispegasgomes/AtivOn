@@ -19,11 +19,26 @@
     <title>Ranking</title>
   </head>
 
-  <body>
-    <!--NAVBAR-->
-    <nav class="navbar fundoAmarelo">
-      <div
-        class="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
+  <link rel="shortcut icon" href="../img/icon.png" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <title>Estatísticas!</title>
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav class="navbar fundoAmarelo">
+    <div class="
           container-fluid
           d-flex
           justify-content-between
@@ -118,75 +133,37 @@
         </div>
       </div>
     </div>
-    <br />
-    <div class="row align-items-center justify-content-center">
-      <div class="col-sm-4 mb-5">
-        <section
-          id="lista_atividades"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <div
-            class="
-              md-3
-              col-md-4
-              fonteUbuntu
-              corAzulEscuro
-              fundoAzulClaro
-              d-flex
-              flex-column
-              align-items-center
-              justify-content-center
-            "
-            style="border-radius: 8px; width: 400px; height: 500px"
-          >
-            <p>Leaderboard</p>
-            <div class="d-flex">
-              <div
-                class="d-flex flex-column align-items-center"
-                style="text-align: center"
-              >
-                <img src="../img/two.png" width="100px" />Luís Gomes
-              </div>
-              <div
-                class="mt-5 d-flex flex-column align-items-center"
-                style="text-align: center"
-              >
-                <img src="../img/Troféu_Ico.png" width="150px" />Joana Portugal
-              </div>
-              <div
-                class="d-flex flex-column align-items-center"
-                style="text-align: center"
-              >
-                <img src="../img/three.png" width="100px" />Gustavo Silva
-              </div>
-            </div>
+  </div>
+  <br>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-sm-4 mb-5">
+      <section id="lista_atividades" class="d-flex flex-column align-items-center justify-content-center">
+        <div
+          class="col-10 col-md-8 fonteUbuntu corAzulEscuro fundoAzulClaro d-flex flex-column align-items-center justify-content-center"
+          style="border-radius: 50px; height: 400px;">
+          <p style="font-size: 35px;">Leaderboard</p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center" style="text-align: center;"><img src="../img/two.png"
+                width="50px">Luís Gomes</div>
+            <div class="mt-5 d-flex flex-column align-items-center" style="text-align: center;"><img
+                src="../img/Troféu_Ico.png" width="150px">Joana Portugal</div>
+            <div class="d-flex flex-column align-items-center" style="text-align: center;"><img src="../img/three.png"
+                width="50px">Gustavo Silva</div>
           </div>
         </section>
       </div>
 
-      <!--TABLE-->
-      <div class="col-sm-4">
-        <section
-          id="lista_atividades"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <div
-            class="
-              md-3
-              col-md-4
-              corAzulEscuro
-              d-flex
-              align-items-center
-              justify-content-center
-            "
-          >
-            <table class="table">
-              <tr class="fundoAmarelo">
-                <td scope="row">1</td>
-                <td><img src="../img/cuidadoso.png" width="50px" /></td>
-                <td>joanaportugal</td>
-                <td>12</td>
-              </tr>
+    <!--TABLE-->
+    <div class="col-sm-4">
+      <section id="lista_atividades" class="d-flex flex-column align-items-center justify-content-center">
+        <div class="md-3 col-10 col-md-8 corAzulEscuro d-flex align-items-center justify-content-center">
+          <table class="table d-flex align-items-center">
+            <tr class="fundoAmarelo d-flex align-items-center" style="border-radius: 120px;">
+              <td scope="row">1</td>
+              <td><img src="../img/cuidadoso.png" width="50px"></td>
+              <td>joanaportugal</td>
+              <td>12</td>
+            </tr>
 
               <tr>
                 <td scope="row">2</td>
@@ -207,6 +184,15 @@
       </div>
       <!--TABLE-->
     </div>
-  </body>
-  <script type="module" src="../js/app.js"></script>
+    <!--TABLE-->
+
+  </div>
+
+
+
+
+
+</body>
+<script type="module" src="../js/app.js"></script>
+
 </html>
