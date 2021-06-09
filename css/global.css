@@ -177,3 +177,7 @@ a {
 a:hover {
   color: black;
 }
+
+tbody, td, tfoot, th, thead, tr {
+  border: none;
+}
