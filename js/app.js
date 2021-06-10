@@ -60,7 +60,7 @@ class App {
     const activities = {
       quiz: {
         activityName: "QuizOn",
-        activityXP: 300,
+        activityXP: 50,
         activityQuestions: [
           {
             question:
@@ -140,9 +140,51 @@ class App {
     const achievements = [
       {
         type: "avatar",
+        icon: "../img/a_raposa.png",
+        name: "A Raposa",
+        level: 1,
+      },
+      {
+        type: "avatar",
+        icon: "../img/corredor.png",
+        name: "O Corredor",
+        level: 15,
+      },
+      {
+        type: "avatar",
         icon: "../img/cuidadoso.png",
         name: "O Cuidadoso",
-        description: "100% de respostas certas no quiz.",
+        level: 20,
+      },
+      {
+        type: "avatar",
+        icon: "../img/o_mestre.png",
+        name: "O Mestre",
+        level: 50,
+      },
+      {
+        type: "avatar",
+        icon: "../img/o_artista.png",
+        name: "O Artista",
+        level: 0,
+      },
+      {
+        type: "avatar",
+        icon: "../img/o_batoteiro.png",
+        name: "O Batoteiro",
+        level: 0,
+      },
+      {
+        type: "avatar",
+        icon: "../img/o_musico.png",
+        name: "O Músico",
+        level: 0,
+      },
+      {
+        type: "avatar",
+        icon: "../img/o_sortudo.png",
+        name: "O Sortudo",
+        level: 0,
       },
     ];
 

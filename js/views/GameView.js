@@ -55,6 +55,7 @@ export default class GameView {
         if (inputs[i].value == text) {
           counter += 1;
         }
+        inputs[i].value = "";
       }
       this.gameController.finishActivity("fillTheSpaces", counter);
       Swal.fire({
@@ -66,10 +67,12 @@ export default class GameView {
           counter * fillTheSpaces.activityXP
         } XP.`,
         confirmButtonColor: "#8ecae6",
-        confirmButtonText:
-          '<a href="./landing_user.html">Volta para o início!</a>',
+        confirmButtonText: "Volta para o início!",
+      }).then((result) => {
+        if (result.value) {
+          window.location.href = `./landing_user.html`;
+        }
       });
-      //location.href = "./landing_user.html";
     });
   }
 }

@@ -14,24 +14,22 @@ export default class AdminView {
     this.activities = JSON.parse(localStorage.activities);
     this.quizNome = document.getElementById("quizNome");
     this.quizXP = document.getElementById("quizXP");
-    this.trueOrFalseNome = document.getElementById("trueOrFalseNome");
-    this.trueOrFalseXP = document.getElementById("trueOrFalseXP");
     this.fillSpacesNome = document.getElementById("fillSpacesNome");
     this.fillSpacesXP = document.getElementById("fillSpacesXP");
     this.configQuiz = document.getElementById("configQuiz");
-    this.configTrueOrFalse = document.getElementById("configTrueOrFalse");
     this.configFillSpaces = document.getElementById("configFillSpaces");
     // listActivitiesQuestions
     this.perguntasQuiz = document.getElementById("perguntasQuiz");
-    this.perguntasTrueOrFalse = document.getElementById("perguntasTrueOrFalse");
+    this.infoFillSpaces = document.getElementById("infoFillSpaces");
     // addActivityQuestion
     this.addQuiz = document.getElementById("addQuiz");
-    this.addTrueOrFalse = document.getElementById("addTrueOrFalse");
-
+    this.formFillSpaces = document.getElementById("formFillSpaces");
     if (this.quizNome) {
       this.configActivities();
-      this.listActivitiesQuestions();
-      this.addActivityQuestion();
+      this.listQuizQuestions();
+      this.addQuizQuestion();
+      this.showFillTheSpacesText();
+      this.alterFillTheSpacesText();
     }
 
     this.achievements = JSON.parse(localStorage.achievements);
@@ -118,8 +116,6 @@ export default class AdminView {
   configActivities() {
     this.quizNome.innerHTML = this.activities.quiz.activityName;
     this.quizXP.innerHTML = `${this.activities.quiz.activityXP} XP`;
-    this.trueOrFalseNome.innerHTML = this.activities.trueOrFalse.activityName;
-    this.trueOrFalseXP.innerHTML = `${this.activities.trueOrFalse.activityXP} XP`;
     this.fillSpacesNome.innerHTML = this.activities.fillTheSpaces.activityName;
     this.fillSpacesXP.innerHTML = `${this.activities.fillTheSpaces.activityXP} XP`;
 
@@ -138,28 +134,6 @@ export default class AdminView {
       }
       if (exp) {
         this.activities.quiz.activityXP = Number(exp);
-      }
-      this.storageController.updateLocalStorage(
-        "activities",
-        JSON.stringify(this.activities)
-      );
-      location.reload();
-    });
-
-    this.configTrueOrFalse.addEventListener("click", () => {
-      const nome = prompt(
-        "Novo nome para o verdadeiro ou falso",
-        this.activities.trueOrFalse.activityName
-      );
-      const exp = prompt(
-        "Quantidade de experiência ganha",
-        this.activities.trueOrFalse.activityXP
-      );
-      if (nome.trim()) {
-        this.activities.trueOrFalse.activityName = nome;
-      }
-      if (exp) {
-        this.activities.trueOrFalse.activityXP = Number(exp);
       }
       this.storageController.updateLocalStorage(
         "activities",
@@ -191,13 +165,11 @@ export default class AdminView {
     });
   }
 
-  listActivitiesQuestions() {
+  listQuizQuestions() {
     const quizQuestions = this.activities.quiz.activityQuestions;
-    const trueOrFalseQuestions = this.activities.trueOrFalse.activityQuestions;
     let quiz = "";
-    let trueOrFalse = "";
     for (const quizQuestion of quizQuestions) {
-      quiz += `<div class="card card-body">
+      quiz += `<div class="card card-body fonteUbuntu">
           <p><b class="corLaranja">Pergunta: </b>
           <span>${quizQuestion.question}</span></p>
           <p class="pl-2"><b class="corLaranja">Resposta certa: </b>${quizQuestion.rightAnswer}</p>
@@ -205,20 +177,7 @@ export default class AdminView {
           <button class="btn btn-danger removerQuiz">Remover pergunta</button>
         </div>`;
     }
-    for (const trueOrFalseQuestion of trueOrFalseQuestions) {
-      trueOrFalse += `<div class="card card-body">
-            <p><b class="corLaranja">Pergunta: </b>
-            <span>${trueOrFalseQuestion.question}</span></p>
-            <p class="pl-2 ${
-              trueOrFalseQuestion.type !== "Falso"
-                ? "text-sucess"
-                : "text-danger"
-            }">${trueOrFalseQuestion.type}</p>
-            <button class="btn btn-danger removerTrueOrFalse">Remover pergunta</button>
-          </div>`;
-    }
     this.perguntasQuiz.innerHTML = quiz;
-    this.perguntasTrueOrFalse.innerHTML = trueOrFalse;
 
     const quizBtns = document.getElementsByClassName("removerQuiz");
     for (const quizBtn of quizBtns) {
@@ -230,21 +189,9 @@ export default class AdminView {
         location.reload();
       });
     }
-
-    const trueOrFalseBtns =
-      document.getElementsByClassName("removerTrueOrFalse");
-    for (const trueOrFalseBtn of trueOrFalseBtns) {
-      trueOrFalseBtn.addEventListener("click", () => {
-        const pergunta = String(
-          trueOrFalseBtn.parentNode.querySelector("p span").innerHTML
-        );
-        this.adminController.removeActivityQuestion("trueOrFalse", pergunta);
-        location.reload();
-      });
-    }
   }
 
-  addActivityQuestion() {
+  addQuizQuestion() {
     this.addQuiz.addEventListener("click", () => {
       const question = prompt("Pergunta").trim();
       const rightAnswer = prompt("Resposta Certa").trim();
@@ -260,23 +207,44 @@ export default class AdminView {
         alert("Alguma coisa deu errado ao adicionar a pergunta");
       }
     });
+  }
 
-    this.addTrueOrFalse.addEventListener("click", () => {
-      const question = prompt("Pergunta").trim();
-      const type = prompt("Tipo (Verdadeiro/Falso)").trim();
-      if (question && (type === "Verdadeiro" || type === "Falso")) {
-        this.adminController.addActivityQuestion("trueOrFalse", {
-          question,
-          type,
+  showFillTheSpacesText() {
+    const fillSpacesGame = this.activities.fillTheSpaces.activityQuestions;
+    const arrText = fillSpacesGame.text.split(" ");
+    let fillSpacesText = "";
+    for (let index = 0; index < arrText.length; index++) {
+      if (fillSpacesGame.holes.includes(index)) {
+        fillSpacesText += `<b>${arrText[index]}</b> `;
+      } else {
+        fillSpacesText += `${arrText[index]} `;
+      }
+    }
+    this.infoFillSpaces.innerHTML = `<p class="fonteUbuntu">${fillSpacesText}</p>`;
+  }
+
+  alterFillTheSpacesText() {
+    this.formFillSpaces.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let text = document.getElementById("newText").value;
+      let holes = document.getElementById("newHoles").value;
+      if (text && holes) {
+        holes = holes.split(" ").map((n) => Number(n) - 1);
+        this.adminController.addActivityQuestion("fillTheSpaces", {
+          text,
+          holes,
         });
       } else {
-        alert("Alguma coisa deu errado ao adicionar a pergunta");
+        alert("Não preencheu os formulário todo");
       }
+      text = "";
+      holes = "";
+      location.reload();
     });
   }
 
-  achievementCard(icon, name, description) {
-    return `<div class="col-sm-3">
+  achievementCard(icon, name, level) {
+    return `<div class="col-sm-3 mb-2">
     <div class="card">
       <div class="card-body">
         <img
@@ -285,7 +253,7 @@ export default class AdminView {
           alt="${name}" 
         />
         <h5 class="card-title text-center my-2">${name}</h5>
-        <p class="card-text">${description}</p>
+        <p class="card-text">Atingir o nível ${level}</p>
         <button class="btn btn-danger removerConquista">Remover</button>
       </div>
     </div>
@@ -295,18 +263,19 @@ export default class AdminView {
   listAchievements() {
     let listAvatars = "";
     let listMedals = "";
+    this.achievements = this.achievements.sort((a, b) => a.level - b.level);
     for (const achievement of this.achievements) {
       if (achievement.type === "avatar") {
         listAvatars += this.achievementCard(
           achievement.icon,
           achievement.name,
-          achievement.description
+          achievement.level
         );
       } else {
         listMedals += this.achievementCard(
           achievement.icon,
           achievement.name,
-          achievement.description
+          achievement.level
         );
       }
     }
@@ -340,7 +309,7 @@ export default class AdminView {
       const type = prompt("Tipo (avatar/medalha)");
       const name = prompt("Nome");
       const icon = prompt("Icon");
-      const description = prompt("Descrição");
+      const level = prompt("Nível a atingir");
 
       if (
         (type === "avatar" || type === "medal") &&
@@ -349,7 +318,7 @@ export default class AdminView {
             achievement.name === name || achievement.icon === icon
         )
       ) {
-        this.achievements.push({ type, icon, name, description });
+        this.achievements.push({ type, icon, name, level: Number(level) });
         this.storageController.updateLocalStorage(
           "achievements",
           JSON.stringify(this.achievements)

@@ -62,38 +62,6 @@
         <div class="collapse" id="perguntasQuiz"></div>
       </article>
 
-      <h1 class="corAzul">Verdadeiro ou Falso</h1>
-      <article class="mb-4">
-        <p class="font-weight-bold h5 corAmarelo">
-          Nome: <span id="trueOrFalseNome"></span>
-        </p>
-        <p class="font-weight-bold h5 corAmarelo">
-          Quantidade de experiência: <span id="trueOrFalseXP"></span>
-        </p>
-        <button
-          class="btn fundoAmarelo corAzulEscuro font-weight-bold"
-          id="configTrueOrFalse"
-        >
-          Configurar
-        </button>
-        <button
-          class="btn fundoAmarelo corAzulEscuro font-weight-bold"
-          data-toggle="collapse"
-          data-target="#perguntasTrueOrFalse"
-          aria-expanded="false"
-          aria-controls="perguntasTrueOrFalse"
-        >
-          Perguntas
-        </button>
-        <button
-          class="btn fundoAmarelo corAzulEscuro font-weight-bold"
-          id="addTrueOrFalse"
-        >
-          Adicionar Pergunta
-        </button>
-        <div class="collapse" id="perguntasTrueOrFalse"></div>
-      </article>
-
       <h1 class="corAzul">Preencha os Espaços</h1>
       <article class="mb-4">
         <p class="font-weight-bold h5 corAmarelo">
@@ -108,6 +76,37 @@
         >
           Configurar
         </button>
+        <button
+          class="btn fundoAmarelo corAzulEscuro font-weight-bold"
+          id="seeFillSpaces"
+          data-toggle="collapse"
+          data-target="#infoFillSpaces"
+          aria-expanded="false"
+          aria-controls="infoFillSpaces"
+        >
+          Ver
+        </button>
+        <button
+          class="btn fundoAmarelo corAzulEscuro font-weight-bold"
+          id="updateFillSpaces"
+          data-toggle="collapse"
+          data-target="#changeFillSpaces"
+          aria-expanded="false"
+          aria-controls="changeFillSpaces"
+        >
+          Alterar
+        </button>
+        <div class="collapse" id="infoFillSpaces"></div>
+        <div class="collapse" id="changeFillSpaces">
+          <form id="formFillSpaces">
+            <p>Novo texto</p>
+            <textarea id="newText" cols="90" rows="3"></textarea>
+            <p>Número das palavras (separado por espaço)</p>
+            <textarea id="newHoles" cols="90" rows="3"></textarea>
+            <br />
+            <button class="btn btn-info">Atualizar</button>
+          </form>
+        </div>
       </article>
     </main>
   </body>

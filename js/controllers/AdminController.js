@@ -59,21 +59,12 @@ export default class AdminController {
       } else {
         alert("Pergunta já existente");
       }
-    } else if (activity == "trueOrFalse") {
-      if (
-        !this.activities.trueOrFalse.activityQuestions.some(
-          (q) => q.question === item.question
-        )
-      ) {
-        this.activities.quiz.activityQuestions.push(item);
-        this.storageController.updateLocalStorage(
-          "activities",
-          JSON.stringify(this.activities)
-        );
-        location.reload();
-      } else {
-        alert("Pergunta já existente");
-      }
+    } else if (activity == "fillTheSpaces") {
+      this.activities.fillTheSpaces.activityQuestions = item;
+      this.storageController.updateLocalStorage(
+        "activities",
+        JSON.stringify(this.activities)
+      );
     }
   }
 
@@ -83,15 +74,6 @@ export default class AdminController {
         (q) => q.question != question
       );
       this.activities.quiz.activityQuestions = list;
-      this.storageController.updateLocalStorage(
-        "activities",
-        JSON.stringify(this.activities)
-      );
-    } else if (activity == "trueOrFalse") {
-      const list = this.activities.trueOrFalse.activityQuestions.filter(
-        (q) => q.question != question
-      );
-      this.activities.trueOrFalse.activityQuestions = list;
       this.storageController.updateLocalStorage(
         "activities",
         JSON.stringify(this.activities)

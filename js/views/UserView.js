@@ -45,7 +45,9 @@ export default class UserView {
       displayUsername.innerHTML = userInfo.username;
     }
     for (const displayXP of this.displayXP) {
-      displayXP.innerHTML = userInfo.xp ? `${userInfo.xp} XP` : `0 XP`;
+      displayXP.innerHTML = userInfo.xp
+        ? ` Nível ${Math.trunc(userInfo.xp / 100)} <br /> ${userInfo.xp} XP`
+        : `Nível 0 <br /> 0 XP`;
     }
 
     if (this.userName) {
