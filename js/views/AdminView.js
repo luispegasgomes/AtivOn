@@ -282,8 +282,7 @@ export default class AdminView {
         <img
           class="card-img-top"
           src="${icon}"
-          alt="${name}"
-          height="200" width="200"
+          alt="${name}" 
         />
         <h5 class="card-title text-center my-2">${name}</h5>
         <p class="card-text">${description}</p>
