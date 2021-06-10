@@ -6,6 +6,7 @@ export default class GameView {
     this.gameNameQuizOn = document.getElementById("gameNameQuizOn");
     this.showGamesName();
     this.textCompleta = document.getElementById("textCompleta");
+    this.wordsCompleta = document.getElementById("wordsCompleta");
     if (this.textCompleta) {
       this.printText();
     }
@@ -31,15 +32,20 @@ export default class GameView {
       .fillTheSpaces.activityQuestions;
     const arrText = question.text.split(" ");
     let text = "";
+    let words = [];
     for (let i = 0; i < arrText.length; i++) {
       if (question.holes.includes(i)) {
         text += `<input type="text" class="completaInput"> `;
+        words.push(arrText[i]);
       } else {
         text += arrText[i] + " ";
       }
     }
 
+    words = words.sort((a, b) => 0.5 - Math.random()).join(" ");
+
     this.textCompleta.innerHTML = `<p>${text}</p>`;
+    this.wordsCompleta.innerHTML = `<p>${words}</p>`;
   }
 
   checkValues() {

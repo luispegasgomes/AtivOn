@@ -20,7 +20,6 @@ class App {
       activities: [UserView, GameView],
       completa: [UserView, GameView],
       quizOn: [UserView, GameView],
-      CurioAtiv: [UserView],
       leaderboard: [UserView],
       trophies: [UserView],
       info_Covid: [UserView],
