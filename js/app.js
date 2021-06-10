@@ -3,6 +3,7 @@ import LoginView from "./views/LoginView.js";
 import UserView from "./views/UserView.js";
 import AdminView from "./views/AdminView.js";
 import GameView from "./views/GameView.js";
+import TrophyView from "./views/TrophyView.js";
 
 class App {
   constructor() {
@@ -141,7 +142,7 @@ class App {
         type: "avatar",
         icon: "../img/a_raposa.png",
         name: "A Raposa",
-        level: 1,
+        level: 0,
       },
       {
         type: "avatar",
@@ -165,25 +166,25 @@ class App {
         type: "avatar",
         icon: "../img/o_artista.png",
         name: "O Artista",
-        level: 0,
+        level: 6,
       },
       {
         type: "avatar",
         icon: "../img/o_batoteiro.png",
         name: "O Batoteiro",
-        level: 0,
+        level: 8,
       },
       {
         type: "avatar",
         icon: "../img/o_musico.png",
         name: "O Músico",
-        level: 0,
+        level: 16,
       },
       {
         type: "avatar",
         icon: "../img/o_sortudo.png",
         name: "O Sortudo",
-        level: 0,
+        level: 60,
       },
     ];
 

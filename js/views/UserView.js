@@ -23,6 +23,11 @@ export default class UserView {
       this.updatePassword();
     }
     this.storageController = new StorageController();
+
+    // Change the Avatar
+    this.oldAvatar = document.getElementById('oldAvatar').value
+    this.showNewProfileImage()
+    
   }
 
   checkLoggedUser() {
@@ -93,5 +98,12 @@ export default class UserView {
       this.profileForm.reset();
       e.preventDefault();
     });
+  }
+
+  // Change the profile Avatar
+  showNewProfileImage () {
+    oldAvatar.src = this.userController.getAvatarByLevel().icon
+    
+    
   }
 }
