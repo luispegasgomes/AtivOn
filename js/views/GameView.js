@@ -101,7 +101,7 @@ export default class GameView {
 
   listItems(questionItem) {
     // bad counter
-    if (this.questionCounter != 5) {
+    if (this.questionCounter != 4) {
       this.quizNumber.innerHTML = this.questionCounter + 1;
       this.quizQuestion.innerHTML = questionItem.question;
       this.quizAnswer1.innerHTML =
