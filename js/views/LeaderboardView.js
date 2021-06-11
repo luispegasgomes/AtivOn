@@ -3,21 +3,36 @@ import LeaderboardController from "../controllers/LeaderboardController.js";
 export default class LeaderboardView {
   constructor() {
     this.leaderboardController = new LeaderboardController();
+    // landing
+    this.leaderboardPosition = document.getElementById("leaderboardPosition");
+    if (this.leaderboardPosition) {
+      this.getUserPosition(JSON.parse(sessionStorage.active).username);
+    }
+    // leaderboard
     this.top1Username = document.getElementById("top1Username");
     this.top1UserXP = document.getElementById("top1UserXP");
     this.leaderboardTable = document.getElementById("leaderboardTable");
-    this.showTop1User();
-    this.showLeaderboard();
+    this.leaderboardOrder = this.leaderboardController.orderUsers();
+    if (this.top1Username) {
+      this.showTop1User();
+      this.showLeaderboard();
+    }
+  }
+
+  getUserPosition(username) {
+    const position =
+      this.leaderboardOrder.findIndex((user) => user.username == username) + 1;
+    this.leaderboardPosition.innerHTML = position;
   }
 
   showTop1User() {
-    const top1 = this.leaderboardController.orderUsers()[0];
+    const top1 = this.leaderboardOrder[0];
     this.top1Username.innerHTML = top1.username;
     this.top1UserXP.innerHTML = top1.xp ? `${top1.xp} XP` : "0 XP";
   }
 
   showLeaderboard() {
-    const leaderboard = this.leaderboardController.orderUsers();
+    const leaderboard = this.leaderboardOrder;
     const maxSize = leaderboard.length <= 10 ? leaderboard.length : 10;
     let leaderboardList = "";
     for (let index = 0; index < maxSize; index++) {

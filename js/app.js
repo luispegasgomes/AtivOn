@@ -17,7 +17,7 @@ class App {
       admin_users: [UserView, AdminView],
       admin_activities: [UserView, AdminView],
       admin_achievements: [UserView, AdminView],
-      landing_user: [UserView, GameView],
+      landing_user: [UserView, GameView, LeaderboardView],
       profile: [UserView],
       activities: [UserView],
       completa: [UserView, GameView],
