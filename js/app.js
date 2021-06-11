@@ -3,6 +3,7 @@ import LoginView from "./views/LoginView.js";
 import UserView from "./views/UserView.js";
 import AdminView from "./views/AdminView.js";
 import GameView from "./views/GameView.js";
+import AchievementView from "./views/AchievementsView.js";
 
 class App {
   constructor() {
@@ -17,11 +18,11 @@ class App {
       admin_achievements: [UserView, AdminView],
       landing_user: [UserView, GameView],
       profile: [UserView],
-      activities: [UserView, GameView],
+      activities: [UserView],
       completa: [UserView, GameView],
       quizOn: [UserView, GameView],
       leaderboard: [UserView],
-      trophies: [UserView],
+      trophies: [UserView, AchievementView],
       info_Covid: [UserView],
       statistics: [UserView],
     };
@@ -46,11 +47,31 @@ class App {
         status: "active",
       },
       {
-        name: "user",
-        username: "user",
-        email: "user@gmail.com",
+        name: "Joana Portugal",
+        username: "joanap",
+        email: "jojo@gmail.com",
         password: "password",
-        birthdate: "2000-02-10",
+        birthdate: "2000-07-14",
+        gender: "F",
+        type: "child",
+        status: "active",
+      },
+      {
+        name: "Luís Gomes",
+        username: "luisg",
+        email: "lulu@gmail.com",
+        password: "password",
+        birthdate: "2000-09-15",
+        gender: "M",
+        type: "child",
+        status: "active",
+      },
+      {
+        name: "Gustavo Silva",
+        username: "gustavos",
+        email: "gugu@gmail.com",
+        password: "password",
+        birthdate: "2000-02-23",
         gender: "M",
         type: "child",
         status: "active",

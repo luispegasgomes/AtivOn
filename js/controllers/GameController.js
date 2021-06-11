@@ -9,7 +9,6 @@ export default class GameController {
   }
 
   finishActivity(activity, counter) {
-    console.log("a");
     const activityXP =
       activity == "quiz"
         ? this.activities.quiz.activityXP
@@ -29,5 +28,13 @@ export default class GameController {
       "active",
       JSON.stringify(this.userLogged)
     );
+  }
+
+  getGameQuestions() {
+    const questions = this.activities.quiz.activityQuestions.sort(
+      (a, b) => 0.5 - Math.random()
+    );
+
+    return questions.slice(0, 5);
   }
 }
