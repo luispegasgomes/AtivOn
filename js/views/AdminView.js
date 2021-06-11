@@ -203,6 +203,7 @@ export default class AdminView {
           rightAnswer,
           wrongAnswer,
         });
+        location.reload();
       } else {
         alert("Alguma coisa deu errado ao adicionar a pergunta");
       }

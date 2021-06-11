@@ -25,9 +25,10 @@ export default class UserView {
     this.storageController = new StorageController();
 
     // Change the Avatar
-    this.oldAvatar = document.getElementById('oldAvatar').value
-    this.showNewProfileImage()
-    
+    this.oldAvatar = document.getElementById("oldAvatar");
+    if (this.oldAvatar) {
+      this.showNewProfileImage();
+    }
   }
 
   checkLoggedUser() {
@@ -101,9 +102,7 @@ export default class UserView {
   }
 
   // Change the profile Avatar
-  showNewProfileImage () {
-    oldAvatar.src = this.userController.getAvatarByLevel().icon
-    
-    
+  showNewProfileImage() {
+    oldAvatar.src = this.userController.getAvatarByLevel().icon;
   }
 }

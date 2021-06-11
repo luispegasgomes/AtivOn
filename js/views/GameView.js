@@ -5,6 +5,7 @@ export default class GameView {
     this.gameNameCompleta = document.getElementById("gameNameCompleta");
     this.gameNameQuizOn = document.getElementById("gameNameQuizOn");
     this.showGamesName();
+    // fillTheSpaces
     this.textCompleta = document.getElementById("textCompleta");
     this.wordsCompleta = document.getElementById("wordsCompleta");
     if (this.textCompleta) {
@@ -14,6 +15,12 @@ export default class GameView {
     if (this.completaSend) {
       this.checkValues();
     }
+    // quiz
+    this.quizNumber = document.getElementById("quizNumber");
+    if (this.quizNumber) {
+      this.renderQuiz();
+    }
+    // ------------
     this.gameController = new GameController();
   }
 
@@ -81,4 +88,6 @@ export default class GameView {
       });
     });
   }
+
+  renderQuiz() {}
 }

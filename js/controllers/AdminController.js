@@ -55,7 +55,6 @@ export default class AdminController {
           "activities",
           JSON.stringify(this.activities)
         );
-        location.reload();
       } else {
         alert("Pergunta já existente");
       }

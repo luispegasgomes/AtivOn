@@ -73,13 +73,14 @@ export default class UserController {
       "admin_medals",
     ];
     const userRoutes = [
-      "landing_user",
-      "profile",
-      "games",
-      "CurioAtiv",
-      "statistics",
-      "trophies",
+      "activities",
+      "completa",
       "info_Covid",
+      "landing_user",
+      "leaderboard",
+      "profile",
+      "quizOn",
+      "trophies",
     ];
     const path = window.location.pathname;
     const file = path.substr(path.lastIndexOf("/") + 1);
@@ -120,11 +121,13 @@ export default class UserController {
       location.href = "./landing_user.html";
     }
   }
-  getAvatarByLevel(){
-    const achievements = JSON.parse(localStorage.achievements)
-    const userInfo = JSON.parse(sessionStorage.active)
-    const level = userInfo.xp ? Math.trunc(userInfo.xp / 100) : 0
-    let possibleAvatares = achievements.sort((a, b) => a.level-b.level).filter(obj => (obj.level <= level) && (obj.type == "avatar"))
-    return possibleAvatares[possibleAvatares.length - 1]
+  getAvatarByLevel() {
+    const achievements = JSON.parse(localStorage.achievements);
+    const userInfo = JSON.parse(sessionStorage.active);
+    const level = userInfo.xp ? Math.trunc(userInfo.xp / 100) : 0;
+    let possibleAvatares = achievements
+      .sort((a, b) => a.level - b.level)
+      .filter((obj) => obj.level <= level && obj.type == "avatar");
+    return possibleAvatares[possibleAvatares.length - 1];
   }
 }

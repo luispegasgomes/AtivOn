@@ -100,8 +100,7 @@
     <section class="d-flex align-items-center justify-content-center mt-3">
         <div class="d-flex flex-column align-items-center justify-content-center fundoAzulEscuro corAzulClaro"
             style="border-radius: 10px; width: 200px;">
-            <div class="fonteUbuntu ">Questão 1/10</div>
-            <div class="fonteUbuntu">Respostas corretas: 0</div>
+            <div class="fonteUbuntu">Questão <span id="quizNumber"></span>/5</div>
         </div>
     </section>
 
@@ -110,21 +109,12 @@
 
         <div style="border-radius: 10px; width: 350px;"
             class="fundoAzulEscuro col-2 d-flex flex-column justify-content-center align-items-center">
-            <img src="../img/Pergunta 1.png" class="col-10 mb-2 mt-2">
-            <div class="corLaranja fonteChewy h5 mt-2">O SARS-CoV-2 é uma doença?</div>
+            <img src="../img/quizImg.png" class="col-10 mb-2 mt-2">
+            <div class="corLaranja fonteChewy h5 mt-2" id="quizQuestion">dssdsd</div>
             <!--ANSWERS-->
-            <div class="col-10 corAzulEscuro fonteUbuntu fundoAzulClaro mt-2 d-flex align-items-center"
-                style="border-radius: 10px; height: 50px;"><input type="radio" class="form-check-input mx-1 mb-1">
-                <div style="text-align: center;">
-                    Sim, é a mesma doença do que a Covid-19.
-                </div>
-            </div>
-            <div class="col-10 corAzulEscuro fonteUbuntu fundoAzulClaro mt-2 mb-5 d-flex align-items-center"
-                style="border-radius: 10px; height: 50px;"><input type="radio" class="form-check-input mx-1 mb-1">
-                <div style="text-align: center;">
-                    Não, a Covid-19 é que é uma doença.
-                </div>
-            </div>
+            <button class="btn fundoAzulClaro corAzulEscuro col-10 m-0 mb-2" id="quizAnswer1">abc</button>
+            <button class="btn fundoAzulClaro corAzulEscuro col-10 m-0 mb-5" id="quizAnswer2">abc</button>
+            
         </div>
     </section>
 

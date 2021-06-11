@@ -3,7 +3,6 @@ import LoginView from "./views/LoginView.js";
 import UserView from "./views/UserView.js";
 import AdminView from "./views/AdminView.js";
 import GameView from "./views/GameView.js";
-import TrophyView from "./views/TrophyView.js";
 
 class App {
   constructor() {
