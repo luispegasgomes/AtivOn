@@ -4,6 +4,7 @@ import UserView from "./views/UserView.js";
 import AdminView from "./views/AdminView.js";
 import GameView from "./views/GameView.js";
 import AchievementView from "./views/AchievementsView.js";
+import LeaderboardView from "./views/LeaderboardView.js";
 
 class App {
   constructor() {
@@ -21,7 +22,7 @@ class App {
       activities: [UserView],
       completa: [UserView, GameView],
       quizOn: [UserView, GameView],
-      leaderboard: [UserView],
+      leaderboard: [UserView, LeaderboardView],
       trophies: [UserView, AchievementView],
       info_Covid: [UserView],
       statistics: [UserView],
