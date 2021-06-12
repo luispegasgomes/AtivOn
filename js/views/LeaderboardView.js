@@ -39,12 +39,12 @@ export default class LeaderboardView {
       const user = leaderboard[index];
       leaderboardList +=
         index == 0
-          ? `<article class="fundoAmarelo col-12 my-1 d-flex">
+          ? `<article class="fundoAmarelo col-12 my-1 d-flex" style="border-radius: 30px; text-align: center;">
                 <p class="col-2 text-center"><b>${index + 1}</b></p>
                 <p class="col-6"><b>${user.username}</b></p>
                 <p class="col-4"><b>${user.xp ? user.xp : 0} XP</b></p>
             </article>`
-          : `<article class="col-12 my-1 d-flex">
+          : `<article class="col-12 my-1 d-flex" style="border-radius: 30px; text-align: center;">
                 <p class="col-2 text-center">${index + 1}</p>
                 <p class="col-6">${user.username}</p>
                 <p class="col-4">${user.xp ? user.xp : 0} XP</p>
