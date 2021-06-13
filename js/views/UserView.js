@@ -46,6 +46,7 @@ export default class UserView {
   }
 
   displayUserInfo() {
+    //Show Username in nav and profile page
     const userInfo = JSON.parse(sessionStorage.getItem("active"));
     for (const displayUsername of this.displayUsername) {
       displayUsername.innerHTML = userInfo.username;
