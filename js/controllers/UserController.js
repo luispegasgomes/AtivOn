@@ -56,7 +56,20 @@ export default class UserController {
         alert("Utilizador bloqueado");
       }
     } else {
-      alert("Erro!");
+      Swal.fire({
+        imageUrl: "../img/",
+        imageWidth: 200,
+        imageHeight: 200,
+        title: "Erro!",
+        html: `Inseriste os teus dados incorretamente!`,
+        confirmButtonColor: "#8ecae6",
+        confirmButtonText: "Volta para o início!",
+      }).then((result) => {
+        if (result.value) {
+          window.location.href = `./index.html`;
+        }
+      });
+      
     }
   }
 
