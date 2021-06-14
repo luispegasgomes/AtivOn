@@ -52,10 +52,15 @@ export default class GameView {
       }
     }
 
-    words = words.sort((a, b) => 0.5 - Math.random()).join(" ");
+    
+    words = words.sort((a, b) => 0.5 - Math.random())
+    let wordsText = "" 
+    for(const word of words) {
+      wordsText += `<span class="px-3">${word}</span>`
+    }
 
     this.textCompleta.innerHTML = `<p>${text}</p>`;
-    this.wordsCompleta.innerHTML = `<p>${words}</p>`;
+    this.wordsCompleta.innerHTML = wordsText;
   }
 
   checkValues() {
