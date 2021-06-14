@@ -5,6 +5,7 @@ export default class LeaderboardView {
     this.leaderboardController = new LeaderboardController();
     // landing
     this.leaderboardPosition = document.getElementById("leaderboardPosition");
+    this.leaderboardOrder = this.leaderboardController.orderUsers();
     if (this.leaderboardPosition) {
       this.getUserPosition(JSON.parse(sessionStorage.active).username);
     }
@@ -12,7 +13,6 @@ export default class LeaderboardView {
     this.top1Username = document.getElementById("top1Username");
     this.top1UserXP = document.getElementById("top1UserXP");
     this.leaderboardTable = document.getElementById("leaderboardTable");
-    this.leaderboardOrder = this.leaderboardController.orderUsers();
     if (this.top1Username) {
       this.showTop1User();
       this.showLeaderboard();
