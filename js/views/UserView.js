@@ -75,9 +75,19 @@ export default class UserView {
       const userInfo = JSON.parse(sessionStorage.getItem("active"));
 
       if (txtPassword.value !== txtConfPassword.value) {
-        alert("As passwords são diferentes");
+        Swal.fire({
+          icon: 'error',
+          title: "Não inseriste corretamente as passwords!",
+          confirmButtonColor: "#8ecae6",
+          confirmButtonText: "Tentar novamente",
+        });
       } else if (txtPassword.value === userInfo.password) {
-        alert("Não podes mudar para a mesma password");
+        Swal.fire({
+          icon: 'error',
+          title: "Não podes mudar para a mesma palavra-passe!",
+          confirmButtonColor: "#8ecae6",
+          confirmButtonText: "Tentar novamente",
+        });
       } else {
         this.storageController.updateSessionStorage(
           "active",
@@ -93,8 +103,17 @@ export default class UserView {
           "users",
           JSON.stringify(newUserList)
         );
-        alert("Password alterada com sucesso");
-        location.href = "./landing_user.html";
+        Swal.fire({
+          icon: 'success',
+          title: "Alteraste a tua palavra-passe com sucesso!",
+          confirmButtonColor: "#8ecae6",
+          confirmButtonText: "Voltar",
+        }).then((result) => {
+          if (result.value) {
+            window.location.href = `./landing_user.html`;
+          }
+        });
+        
       }
 
       this.profileForm.reset();
