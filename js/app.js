@@ -207,6 +207,30 @@ class App {
         name: "O Sortudo",
         level: 60,
       },
+      {
+        type: "medal",
+        icon: "../img/numero_1.png",
+        name: "O número 1",
+        level: 10,
+      },
+      {
+        type: "medal",
+        icon: "../img/a_estrelinha.png",
+        name: "A estrelinha",
+        level: 12,
+      },
+      {
+        type: "medal",
+        icon: "../img/medalha_bronze.png",
+        name: "Medalha de Bronze",
+        level: 6,
+      },
+      {
+        type: "medal",
+        icon: "../img/medalha_prata.png",
+        name: "Medalha de Prata",
+        level: 8,
+      },
     ];
 
     // Load the fixtures in case there is no data in the local storage
